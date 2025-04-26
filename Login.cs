@@ -12,6 +12,8 @@ namespace ProyectoFinal
         {
             InitializeComponent();
             //conn = new SqlConnection("Data Source=LAPTOP-JC6HE824;Initial Catalog=Db_farmacia;Integrated Security=True;");
+            //conn = new SqlConnection("Data Source=CASITA\SQLEXPRESS;Initial Catalog=db_farmacia;Integrated Security=True;");
+
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
