@@ -6,14 +6,9 @@ namespace ProyectoFinal
 {
     public partial class Login : Form
     {
-        private SqlConnection conn;
-
         public Login()
         {
             InitializeComponent();
-            //conn = new SqlConnection("Data Source=LAPTOP-JC6HE824;Initial Catalog=Db_farmacia;Integrated Security=True;");
-            //conn = new SqlConnection("Data Source=CASITA\SQLEXPRESS;Initial Catalog=db_farmacia;Integrated Security=True;");
-
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -23,9 +18,9 @@ namespace ProyectoFinal
             user = txtUser.Text.Trim();
             password = txtPasswordUser.Text.Trim();
 
-            conn.Open();
+            //conn.Open();
             string QryConsultarUsuarios = "Select Usuario, Contrasena from tbl_usuarios where Usuario = @user";
-            using (SqlCommand cmd = new SqlCommand(QryConsultarUsuarios, conn))
+            using (SqlCommand cmd = new SqlCommand(QryConsultarUsuarios))
             {
                 cmd.Parameters.AddWithValue("@user", user);
 
@@ -46,7 +41,7 @@ namespace ProyectoFinal
                 }
 
             }
-            conn.Close();
+            //conn.Close();
         }
     }
 }
