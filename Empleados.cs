@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
     public partial class Empleados : Form
     {
+        ProcesosEmpleados proces = new ProcesosEmpleados();
         public Empleados()
         {
             InitializeComponent();
@@ -14,6 +16,84 @@ namespace ProyectoFinal
         {
             MenuNavegacion nav = new MenuNavegacion();
             nav.Show();
+        }
+
+        private void Empleados_Load(object sender, EventArgs e)
+        {
+
+            string conn = "Data Source=LAPTOP-JC6HE824;Initial Catalog=ProyectoFinal;Integrated Security=True;";
+            ConnectionBD dbHelper = new ConnectionBD(conn);
+
+            //se obtiene el datatable con datos de la consulta
+            DataTable data = dbHelper.GetData("Select * from tbl_empleados");
+
+            //Asignar datos de la db en el datagridview
+            dgvEmpleados.DataSource = data;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Declaracion de todas las variables con todos los objetos del form
+                string codigoEmpleado, nombre, cargo, usuarioSistema, estado, fechaC, fechaS;
+                double metodoSalario;
+
+                cargo = cboxCargo.Text;
+                nombre = txtNombre.Text;
+                estado = cboxEstado.Text;
+                fechaS = dateFechaSistema.Text;
+                fechaC = dateFechaContratacion.Text;
+                codigoEmpleado = txtCodigoEmpleado.Text;
+                usuarioSistema = txtUsuarioSistema.Text;
+
+                if (string.IsNullOrEmpty(cargo) || string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(codigoEmpleado) || string.IsNullOrEmpty(usuarioSistema))
+                {
+                    MessageBox.Show("Hay datos vacios en el formulario");
+                }
+                else if (estado != "Activo" && estado != "Inactivo" && estado != "Suspendido" && estado != "Despedido")
+                {
+                    MessageBox.Show("Hay datos sin seleccionar en el formulario");
+                }
+                else 
+                {
+                    //Aqui se hace la logica para la insercion de datos a la BD
+                    metodoSalario = proces.SalarioEmpleado(cargo);
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Advertencia!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void cboxCargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string cargo;
+                double salario;
+                cargo = cboxCargo.Text;
+                salario = proces.SalarioEmpleado(cargo);
+                
+                if (string.IsNullOrEmpty(cargo))
+                {
+                    MessageBox.Show("Seleccionar Cargo", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                else
+                {
+                    lblSalario.Text = salario.ToString("c");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }

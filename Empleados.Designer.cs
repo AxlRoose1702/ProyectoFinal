@@ -29,10 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboxEstado = new System.Windows.Forms.ComboBox();
+            this.cboxCargo = new System.Windows.Forms.ComboBox();
+            this.btnInicio = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.dateFechaSistema = new System.Windows.Forms.DateTimePicker();
             this.dateFechaContratacion = new System.Windows.Forms.DateTimePicker();
             this.txtUsuarioSistema = new System.Windows.Forms.TextBox();
-            this.txtSalario = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -44,7 +51,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCodigoEmpleado = new System.Windows.Forms.TextBox();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,20 +59,15 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnInicio = new System.Windows.Forms.Button();
-            this.cboxCargo = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblSalario = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.lblSalario);
+            this.groupBox1.Controls.Add(this.cboxEstado);
             this.groupBox1.Controls.Add(this.cboxCargo);
             this.groupBox1.Controls.Add(this.btnInicio);
             this.groupBox1.Controls.Add(this.btnCancelar);
@@ -77,7 +78,6 @@
             this.groupBox1.Controls.Add(this.dateFechaSistema);
             this.groupBox1.Controls.Add(this.dateFechaContratacion);
             this.groupBox1.Controls.Add(this.txtUsuarioSistema);
-            this.groupBox1.Controls.Add(this.txtSalario);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
@@ -94,6 +94,103 @@
             this.groupBox1.Size = new System.Drawing.Size(994, 572);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
+            // 
+            // cboxEstado
+            // 
+            this.cboxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxEstado.FormattingEnabled = true;
+            this.cboxEstado.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo",
+            "Suspendido",
+            "Despedido"});
+            this.cboxEstado.Location = new System.Drawing.Point(627, 60);
+            this.cboxEstado.Name = "cboxEstado";
+            this.cboxEstado.Size = new System.Drawing.Size(100, 26);
+            this.cboxEstado.TabIndex = 40;
+            // 
+            // cboxCargo
+            // 
+            this.cboxCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxCargo.FormattingEnabled = true;
+            this.cboxCargo.Items.AddRange(new object[] {
+            "Gerente",
+            "Recepcionista",
+            "Botones",
+            "Conserje",
+            "Chef"});
+            this.cboxCargo.Location = new System.Drawing.Point(264, 86);
+            this.cboxCargo.Name = "cboxCargo";
+            this.cboxCargo.Size = new System.Drawing.Size(100, 26);
+            this.cboxCargo.TabIndex = 39;
+            this.cboxCargo.SelectedIndexChanged += new System.EventHandler(this.cboxCargo_SelectedIndexChanged);
+            // 
+            // btnInicio
+            // 
+            this.btnInicio.AutoSize = true;
+            this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInicio.Location = new System.Drawing.Point(849, 27);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.Size = new System.Drawing.Size(82, 30);
+            this.btnInicio.TabIndex = 38;
+            this.btnInicio.Text = "Inicio";
+            this.btnInicio.UseVisualStyleBackColor = true;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.AutoSize = true;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(849, 63);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(82, 30);
+            this.btnCancelar.TabIndex = 37;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.AutoSize = true;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(767, 63);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(76, 30);
+            this.btnEdit.TabIndex = 36;
+            this.btnEdit.Text = "Editar";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.AutoSize = true;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(767, 99);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(76, 30);
+            this.btnEliminar.TabIndex = 35;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.AutoSize = true;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(767, 27);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(76, 30);
+            this.btnAdd.TabIndex = 18;
+            this.btnAdd.Text = "Agregar";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(398, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(160, 20);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "CRUD EMPLEADOS";
             // 
             // dateFechaSistema
             // 
@@ -118,14 +215,6 @@
             this.txtUsuarioSistema.Name = "txtUsuarioSistema";
             this.txtUsuarioSistema.Size = new System.Drawing.Size(100, 26);
             this.txtUsuarioSistema.TabIndex = 31;
-            // 
-            // txtSalario
-            // 
-            this.txtSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalario.Location = new System.Drawing.Point(264, 120);
-            this.txtSalario.Name = "txtSalario";
-            this.txtSalario.Size = new System.Drawing.Size(100, 26);
-            this.txtSalario.TabIndex = 29;
             // 
             // txtNombre
             // 
@@ -242,16 +331,6 @@
             this.dgvEmpleados.Size = new System.Drawing.Size(716, 289);
             this.dgvEmpleados.TabIndex = 17;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(398, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(160, 20);
-            this.label9.TabIndex = 34;
-            this.label9.Text = "CRUD EMPLEADOS";
-            // 
             // Codigo
             // 
             this.Codigo.HeaderText = "Codigo Empleado";
@@ -300,90 +379,15 @@
             this.FechaS.Name = "FechaS";
             this.FechaS.Width = 94;
             // 
-            // btnAdd
+            // lblSalario
             // 
-            this.btnAdd.AutoSize = true;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(767, 27);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(76, 30);
-            this.btnAdd.TabIndex = 18;
-            this.btnAdd.Text = "Agregar";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.AutoSize = true;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(767, 99);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(76, 30);
-            this.btnEliminar.TabIndex = 35;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.AutoSize = true;
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(767, 63);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(76, 30);
-            this.btnEdit.TabIndex = 36;
-            this.btnEdit.Text = "Editar";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.AutoSize = true;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(849, 63);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(82, 30);
-            this.btnCancelar.TabIndex = 37;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnInicio
-            // 
-            this.btnInicio.AutoSize = true;
-            this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInicio.Location = new System.Drawing.Point(849, 27);
-            this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(82, 30);
-            this.btnInicio.TabIndex = 38;
-            this.btnInicio.Text = "Inicio";
-            this.btnInicio.UseVisualStyleBackColor = true;
-            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
-            // 
-            // cboxCargo
-            // 
-            this.cboxCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxCargo.FormattingEnabled = true;
-            this.cboxCargo.Items.AddRange(new object[] {
-            "Gerente",
-            "Recepcionista",
-            "Botones",
-            "Conserje",
-            "Chef"});
-            this.cboxCargo.Location = new System.Drawing.Point(264, 86);
-            this.cboxCargo.Name = "cboxCargo";
-            this.cboxCargo.Size = new System.Drawing.Size(100, 26);
-            this.cboxCargo.TabIndex = 39;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo",
-            "Suspendido",
-            "Despedido"});
-            this.comboBox1.Location = new System.Drawing.Point(628, 60);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 26);
-            this.comboBox1.TabIndex = 40;
+            this.lblSalario.AutoSize = true;
+            this.lblSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalario.Location = new System.Drawing.Point(260, 126);
+            this.lblSalario.Name = "lblSalario";
+            this.lblSalario.Size = new System.Drawing.Size(58, 20);
+            this.lblSalario.TabIndex = 41;
+            this.lblSalario.Text = "Salario";
             // 
             // Empleados
             // 
@@ -393,6 +397,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Empleados";
             this.Text = "Empleados";
+            this.Load += new System.EventHandler(this.Empleados_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
@@ -407,7 +412,6 @@
         private System.Windows.Forms.DateTimePicker dateFechaSistema;
         private System.Windows.Forms.DateTimePicker dateFechaContratacion;
         private System.Windows.Forms.TextBox txtUsuarioSistema;
-        private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -432,7 +436,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaC;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaS;
         private System.Windows.Forms.Button btnInicio;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboxEstado;
         private System.Windows.Forms.ComboBox cboxCargo;
+        private System.Windows.Forms.Label lblSalario;
     }
 }
