@@ -73,7 +73,7 @@
     <Compile Include="MenuNavegacion.Designer.cs">
       <DependentUpon>MenuNavegacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProcesosEmpleados.cs" />
+    <Compile Include="Procesos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Empleados.resx">

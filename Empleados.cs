@@ -6,7 +6,7 @@ namespace ProyectoFinal
 {
     public partial class Empleados : Form
     {
-        ProcesosEmpleados proces = new ProcesosEmpleados();
+        Procesos proces = new Procesos();
         public Empleados()
         {
             InitializeComponent();
@@ -61,7 +61,6 @@ namespace ProyectoFinal
                     metodoSalario = proces.SalarioEmpleado(cargo);
 
                 }
-
 
             }
             catch (Exception ex)
