@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnMenuUsuarios = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,39 +38,45 @@
             // 
             this.groupBox1.Controls.Add(this.btnMenuUsuarios);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(9, 10);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 426);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(582, 346);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(244, -3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(297, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "MENU DE NAVEGACION";
             // 
             // btnMenuUsuarios
             // 
             this.btnMenuUsuarios.BackColor = System.Drawing.SystemColors.Info;
             this.btnMenuUsuarios.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuUsuarios.Location = new System.Drawing.Point(6, 71);
+            this.btnMenuUsuarios.Location = new System.Drawing.Point(4, 58);
+            this.btnMenuUsuarios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMenuUsuarios.Name = "btnMenuUsuarios";
-            this.btnMenuUsuarios.Size = new System.Drawing.Size(130, 67);
+            this.btnMenuUsuarios.Size = new System.Drawing.Size(98, 54);
             this.btnMenuUsuarios.TabIndex = 2;
             this.btnMenuUsuarios.Text = "Modulo Empleado";
             this.btnMenuUsuarios.UseVisualStyleBackColor = false;
+            this.btnMenuUsuarios.Click += new System.EventHandler(this.btnMenuUsuarios_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(183, -2);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(247, 26);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "MENU DE NAVEGACION";
             // 
             // MenuNavegacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MenuNavegacion";
             this.Text = "MenuNavegacion";
             this.groupBox1.ResumeLayout(false);
