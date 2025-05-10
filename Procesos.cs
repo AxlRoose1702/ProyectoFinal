@@ -19,12 +19,12 @@
             return 0;
         }
 
-        public double SalarioBono(int salario)
+        public double SalarioBono(double salario)
         {
             return salario * 0.15;
         }
 
-        public double MontoTotal(int salario, int bono, int horasExtras)
+        public double MontoTotal(double salario, double bono, int horasExtras)
         {
             return salario + bono + (horasExtras * 12);
         }

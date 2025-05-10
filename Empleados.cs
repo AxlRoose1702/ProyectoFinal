@@ -36,16 +36,15 @@ namespace ProyectoFinal
             try
             {
                 //Declaracion de todas las variables con todos los objetos del form
-                string codigoEmpleado, nombre, cargo, usuarioSistema, estado, fechaC, fechaS;
                 double metodoSalario;
 
-                cargo = cboxCargo.Text;
-                nombre = txtNombre.Text;
-                estado = cboxEstado.Text;
-                fechaS = dateFechaSistema.Text;
-                fechaC = dateFechaContratacion.Text;
-                codigoEmpleado = txtCodigoEmpleado.Text;
-                usuarioSistema = txtUsuarioSistema.Text;
+                string cargo = cboxCargo.Text;
+                string nombre = txtNombre.Text;
+                string estado = cboxEstado.Text;
+                DateTime fechaS = dateFechaSistema.Value;
+                DateTime fechaC = dateFechaContratacion.Value;
+                int codigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
+                string usuarioSistema = txtUsuarioSistema.Text;
 
                 if (string.IsNullOrEmpty(cargo) || string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(codigoEmpleado) || string.IsNullOrEmpty(usuarioSistema))
                 {

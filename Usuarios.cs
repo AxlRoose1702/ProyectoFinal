@@ -17,17 +17,14 @@ namespace ProyectoFinal
             try
             {
                 //Declaracion de todas las variables con todos los objetos del form
-                int codigoUsuario, codigoEmpleado;
-                string nombre, contrasena, rol, estado, usuarioSistema, fechaS;
-
-                codigoUsuario = int.Parse(txtCodigoUsuario.Text);
-                codigoEmpleado = int.Parse(lblCodigoEmpleado.Text);
-                nombre = txtNombreUsuario.Text;
-                contrasena = txtPassword.Text;
-                rol = cboxRol.Text;
-                estado = cboxEstado.Text;
-                usuarioSistema = txtUsuarioSistema.Text;
-                fechaS = dateFechaSistema.Text;
+                int codigoUsuario = int.Parse(txtCodigoUsuario.Text);
+                int codigoEmpleado = int.Parse(lblCodigoEmpleado.Text);
+                string nombre = txtNombreUsuario.Text;
+                string contrasena = txtPassword.Text;
+                string rol = cboxRol.Text;
+                string estado = cboxEstado.Text;
+                string usuarioSistema = txtUsuarioSistema.Text;
+                DateTime fechaS = dateFechaSistema.Value;
             }
             catch (Exception ex)
             {

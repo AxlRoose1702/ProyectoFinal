@@ -21,20 +21,16 @@ namespace ProyectoFinal
         {
             try
             {
-                int codigoPP, codigoEmpleado, horasE;
-                double salario, bono, montoTotal;
-                string fechaPago, estado, usuarioSistema, fechaS;
-
-                codigoPP = int.Parse(txtCodigoPP.Text);
-                horasE = int.Parse(txtHorasExtras.Text);
-                codigoEmpleado = int.Parse(lblCodigoEmpleado.Text);
-                salario = proces.SalarioPlanilla(codigoEmpleado);
-                bono = proces.SalarioBono(salario);
-                montoTotal = proces.MontoTotal(salario, bono, horasE);
-                fechaPago = dateFechaPago.Text;
-                estado = cboxEstado.Text;
-                usuarioSistema = txtUsuarioSistema.Text;
-                fechaS = dateFechaSistema.Text;
+                int codigoPP = int.Parse(txtCodigoPP.Text);
+                int horasE = int.Parse(txtHorasExtras.Text);
+                int codigoEmpleado = int.Parse(lblCodigoEmpleado.Text);
+                double salario = proces.SalarioPlanilla(codigoEmpleado);
+                double bono = proces.SalarioBono(salario);
+                double montoTotal = proces.MontoTotal(salario, bono, horasE);
+                string estado = cboxEstado.Text;
+                string usuarioSistema = txtUsuarioSistema.Text;
+                DateTime fechaPago = dateFechaPago.Value;
+                DateTime fechaS = dateFechaSistema.Value;
             }
             catch (Exception ex)
             {
