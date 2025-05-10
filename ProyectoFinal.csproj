@@ -73,9 +73,21 @@
     <Compile Include="MenuNavegacion.Designer.cs">
       <DependentUpon>MenuNavegacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="PagoPlanillas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PagoPlanillas.Designer.cs">
+      <DependentUpon>PagoPlanillas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Procesos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Empleados.resx">
       <DependentUpon>Empleados.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuNavegacion.resx">
       <DependentUpon>MenuNavegacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagoPlanillas.resx">
+      <DependentUpon>PagoPlanillas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -94,6 +109,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
