@@ -1,14 +1,29 @@
-﻿using System.Data.SqlClient;
+﻿using System.Data;
+using System.Data.SqlClient;
 
 namespace ProyectoFinal
 {
     public class CDConection
     {
-        //Agregar su propia conexion a la base de datos
-       // private SqlConnection conn = new SqlConnection("Data Source=LAPTOP-JC6HE824;Initial Catalog=ProyectoFinal;Integrated Security=True;Trust Server Certificate=True");
-        private SqlConnection conn2 = new SqlConnection("Data Source=CASITA\\SQLEXPRESS;Initial Catalog=ProyectoFinal;Integrated Security=True;Trust Server Certificate=True");
+        private SqlConnection db_conexion = new SqlConnection("Data Source=CASITA\\SQLEXPRESS;Initial Catalog=db_farmaciaPrograTest;Integrated Security=True;Encrypt=False");
 
 
-        //Crear metodos para la apertura y cierre de la conexion a la base de datos.
+        public SqlConnection MtdAbrirConexion()
+        {
+            if (db_conexion.State == ConnectionState.Closed)
+            {
+                db_conexion.Open();
+            }
+            return db_conexion;
+        }
+
+        public SqlConnection MtdCerrarConexion()
+        {
+            if (db_conexion.State == ConnectionState.Open)
+            {
+                db_conexion.Close();
+            }
+            return db_conexion;
+        }
     }
 }
