@@ -15,5 +15,17 @@ namespace ProyectoFinal
             Empleados empleados = new Empleados();
             empleados.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Usuarios usuarios = new Usuarios();
+            usuarios.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PagoPlanillas pago = new PagoPlanillas();
+            pago.Show();
+        }
     }
 }
