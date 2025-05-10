@@ -4,17 +4,17 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
-    public partial class Empleados : Form
+    public partial class FrmEmpleados : Form
     {
         Procesos proces = new Procesos();
-        public Empleados()
+        public FrmEmpleados()
         {
             InitializeComponent();
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            MenuNavegacion nav = new MenuNavegacion();
+            FrmMenuNavegacion nav = new FrmMenuNavegacion();
             nav.Show();
         }
 

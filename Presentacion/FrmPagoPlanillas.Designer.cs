@@ -1,6 +1,6 @@
 ﻿namespace ProyectoFinal
 {
-    partial class Empleados
+    partial class FrmPagoPlanillas
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblSalario = new System.Windows.Forms.Label();
             this.cboxEstado = new System.Windows.Forms.ComboBox();
-            this.cboxCargo = new System.Windows.Forms.ComboBox();
             this.btnInicio = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -38,18 +38,16 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.dateFechaSistema = new System.Windows.Forms.DateTimePicker();
-            this.dateFechaContratacion = new System.Windows.Forms.DateTimePicker();
+            this.dateFechaPago = new System.Windows.Forms.DateTimePicker();
             this.txtUsuarioSistema = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCodigoEmpleado = new System.Windows.Forms.TextBox();
+            this.txtCodigoPP = new System.Windows.Forms.TextBox();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,16 +57,28 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblSalario = new System.Windows.Forms.Label();
+            this.lblCodigoEmpleado = new System.Windows.Forms.Label();
+            this.lblBono = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtHorasExtras = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblMontoTotal = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblMontoTotal);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.txtHorasExtras);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.lblBono);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.lblCodigoEmpleado);
             this.groupBox1.Controls.Add(this.lblSalario);
             this.groupBox1.Controls.Add(this.cboxEstado);
-            this.groupBox1.Controls.Add(this.cboxCargo);
             this.groupBox1.Controls.Add(this.btnInicio);
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnEdit);
@@ -76,54 +86,46 @@
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.dateFechaSistema);
-            this.groupBox1.Controls.Add(this.dateFechaContratacion);
+            this.groupBox1.Controls.Add(this.dateFechaPago);
             this.groupBox1.Controls.Add(this.txtUsuarioSistema);
-            this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtCodigoEmpleado);
+            this.groupBox1.Controls.Add(this.txtCodigoPP);
             this.groupBox1.Controls.Add(this.dgvEmpleados);
-            this.groupBox1.Location = new System.Drawing.Point(81, 45);
+            this.groupBox1.Location = new System.Drawing.Point(62, 21);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(994, 572);
-            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
+            // 
+            // lblSalario
+            // 
+            this.lblSalario.AutoSize = true;
+            this.lblSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalario.Location = new System.Drawing.Point(261, 93);
+            this.lblSalario.Name = "lblSalario";
+            this.lblSalario.Size = new System.Drawing.Size(58, 20);
+            this.lblSalario.TabIndex = 41;
+            this.lblSalario.Text = "Salario";
             // 
             // cboxEstado
             // 
             this.cboxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxEstado.FormattingEnabled = true;
             this.cboxEstado.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo",
-            "Suspendido",
-            "Despedido"});
+            "Pendiente",
+            "Proceso",
+            "Pagado",
+            "Rechazado"});
             this.cboxEstado.Location = new System.Drawing.Point(627, 60);
             this.cboxEstado.Name = "cboxEstado";
             this.cboxEstado.Size = new System.Drawing.Size(100, 26);
             this.cboxEstado.TabIndex = 40;
-            // 
-            // cboxCargo
-            // 
-            this.cboxCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxCargo.FormattingEnabled = true;
-            this.cboxCargo.Items.AddRange(new object[] {
-            "Gerente",
-            "Recepcionista",
-            "Botones",
-            "Conserje",
-            "Chef"});
-            this.cboxCargo.Location = new System.Drawing.Point(264, 86);
-            this.cboxCargo.Name = "cboxCargo";
-            this.cboxCargo.Size = new System.Drawing.Size(100, 26);
-            this.cboxCargo.TabIndex = 39;
-            this.cboxCargo.SelectedIndexChanged += new System.EventHandler(this.cboxCargo_SelectedIndexChanged);
             // 
             // btnInicio
             // 
@@ -200,13 +202,13 @@
             this.dateFechaSistema.Size = new System.Drawing.Size(100, 20);
             this.dateFechaSistema.TabIndex = 33;
             // 
-            // dateFechaContratacion
+            // dateFechaPago
             // 
-            this.dateFechaContratacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFechaContratacion.Location = new System.Drawing.Point(628, 93);
-            this.dateFechaContratacion.Name = "dateFechaContratacion";
-            this.dateFechaContratacion.Size = new System.Drawing.Size(100, 20);
-            this.dateFechaContratacion.TabIndex = 32;
+            this.dateFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateFechaPago.Location = new System.Drawing.Point(628, 93);
+            this.dateFechaPago.Name = "dateFechaPago";
+            this.dateFechaPago.Size = new System.Drawing.Size(100, 20);
+            this.dateFechaPago.TabIndex = 32;
             // 
             // txtUsuarioSistema
             // 
@@ -215,14 +217,6 @@
             this.txtUsuarioSistema.Name = "txtUsuarioSistema";
             this.txtUsuarioSistema.Size = new System.Drawing.Size(100, 26);
             this.txtUsuarioSistema.TabIndex = 31;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(264, 56);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 26);
-            this.txtNombre.TabIndex = 27;
             // 
             // label8
             // 
@@ -260,57 +254,47 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(443, 94);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(168, 20);
+            this.label5.Size = new System.Drawing.Size(116, 20);
             this.label5.TabIndex = 23;
-            this.label5.Text = "Fecha de contratacion";
+            this.label5.Text = "Fecha de pago";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(122, 126);
+            this.label4.Location = new System.Drawing.Point(105, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 20);
             this.label4.TabIndex = 22;
             this.label4.Text = "Salario";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(122, 91);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 20);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Cargo";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(123, 59);
+            this.label2.Location = new System.Drawing.Point(105, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.Size = new System.Drawing.Size(135, 20);
             this.label2.TabIndex = 20;
-            this.label2.Text = "Nombre";
+            this.label2.Text = "Codigo Empleado";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(123, 24);
+            this.label1.Location = new System.Drawing.Point(105, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 20);
+            this.label1.Size = new System.Drawing.Size(153, 20);
             this.label1.TabIndex = 19;
-            this.label1.Text = "Codigo Empleado";
+            this.label1.Text = "Codigo Pago Planilla";
             // 
-            // txtCodigoEmpleado
+            // txtCodigoPP
             // 
-            this.txtCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoEmpleado.Location = new System.Drawing.Point(264, 24);
-            this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
-            this.txtCodigoEmpleado.Size = new System.Drawing.Size(100, 26);
-            this.txtCodigoEmpleado.TabIndex = 18;
+            this.txtCodigoPP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoPP.Location = new System.Drawing.Point(264, 24);
+            this.txtCodigoPP.Name = "txtCodigoPP";
+            this.txtCodigoPP.Size = new System.Drawing.Size(100, 26);
+            this.txtCodigoPP.TabIndex = 18;
             // 
             // dgvEmpleados
             // 
@@ -325,10 +309,10 @@
             this.Estado,
             this.FechaC,
             this.FechaS});
-            this.dgvEmpleados.Location = new System.Drawing.Point(126, 184);
+            this.dgvEmpleados.Location = new System.Drawing.Point(108, 266);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmpleados.Size = new System.Drawing.Size(716, 289);
+            this.dgvEmpleados.Size = new System.Drawing.Size(733, 289);
             this.dgvEmpleados.TabIndex = 17;
             // 
             // Codigo
@@ -379,25 +363,82 @@
             this.FechaS.Name = "FechaS";
             this.FechaS.Width = 94;
             // 
-            // lblSalario
+            // lblCodigoEmpleado
             // 
-            this.lblSalario.AutoSize = true;
-            this.lblSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSalario.Location = new System.Drawing.Point(260, 126);
-            this.lblSalario.Name = "lblSalario";
-            this.lblSalario.Size = new System.Drawing.Size(58, 20);
-            this.lblSalario.TabIndex = 41;
-            this.lblSalario.Text = "Salario";
+            this.lblCodigoEmpleado.AutoSize = true;
+            this.lblCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoEmpleado.Location = new System.Drawing.Point(260, 59);
+            this.lblCodigoEmpleado.Name = "lblCodigoEmpleado";
+            this.lblCodigoEmpleado.Size = new System.Drawing.Size(130, 20);
+            this.lblCodigoEmpleado.TabIndex = 42;
+            this.lblCodigoEmpleado.Text = "codigo empleado";
             // 
-            // Empleados
+            // lblBono
+            // 
+            this.lblBono.AutoSize = true;
+            this.lblBono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBono.Location = new System.Drawing.Point(262, 134);
+            this.lblBono.Name = "lblBono";
+            this.lblBono.Size = new System.Drawing.Size(45, 20);
+            this.lblBono.TabIndex = 44;
+            this.lblBono.Text = "bono";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(106, 134);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(47, 20);
+            this.label11.TabIndex = 43;
+            this.label11.Text = "Bono";
+            // 
+            // txtHorasExtras
+            // 
+            this.txtHorasExtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHorasExtras.Location = new System.Drawing.Point(627, 164);
+            this.txtHorasExtras.Name = "txtHorasExtras";
+            this.txtHorasExtras.Size = new System.Drawing.Size(100, 26);
+            this.txtHorasExtras.TabIndex = 46;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(442, 164);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(101, 20);
+            this.label10.TabIndex = 45;
+            this.label10.Text = "Horas Extras";
+            // 
+            // lblMontoTotal
+            // 
+            this.lblMontoTotal.AutoSize = true;
+            this.lblMontoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMontoTotal.Location = new System.Drawing.Point(261, 165);
+            this.lblMontoTotal.Name = "lblMontoTotal";
+            this.lblMontoTotal.Size = new System.Drawing.Size(54, 20);
+            this.lblMontoTotal.TabIndex = 48;
+            this.lblMontoTotal.Text = "monto";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(105, 165);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(93, 20);
+            this.label13.TabIndex = 47;
+            this.label13.Text = "Monto Total";
+            // 
+            // PagoPlanillas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1194, 629);
+            this.ClientSize = new System.Drawing.Size(1166, 645);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Empleados";
-            this.Text = "Empleados";
-            this.Load += new System.EventHandler(this.Empleados_Load);
+            this.Name = "PagoPlanillas";
+            this.Text = "PagoPlanillas";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
@@ -408,25 +449,27 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblCodigoEmpleado;
+        private System.Windows.Forms.Label lblSalario;
+        private System.Windows.Forms.ComboBox cboxEstado;
+        private System.Windows.Forms.Button btnInicio;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dateFechaSistema;
-        private System.Windows.Forms.DateTimePicker dateFechaContratacion;
+        private System.Windows.Forms.DateTimePicker dateFechaPago;
         private System.Windows.Forms.TextBox txtUsuarioSistema;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCodigoEmpleado;
+        private System.Windows.Forms.TextBox txtCodigoPP;
         private System.Windows.Forms.DataGridView dgvEmpleados;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cargo;
@@ -435,9 +478,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaC;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaS;
-        private System.Windows.Forms.Button btnInicio;
-        private System.Windows.Forms.ComboBox cboxEstado;
-        private System.Windows.Forms.ComboBox cboxCargo;
-        private System.Windows.Forms.Label lblSalario;
+        private System.Windows.Forms.Label lblMontoTotal;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtHorasExtras;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblBono;
+        private System.Windows.Forms.Label label11;
     }
 }
