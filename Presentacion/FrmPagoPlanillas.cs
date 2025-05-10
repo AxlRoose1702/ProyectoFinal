@@ -5,7 +5,7 @@ namespace ProyectoFinal
 {
     public partial class FrmPagoPlanillas : Form
     {
-        Procesos proces = new Procesos();
+        CLProcesos proces = new CLProcesos();
         public FrmPagoPlanillas()
         {
             InitializeComponent();

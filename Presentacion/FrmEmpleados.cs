@@ -6,7 +6,7 @@ namespace ProyectoFinal
 {
     public partial class FrmEmpleados : Form
     {
-        Procesos proces = new Procesos();
+        CLProcesos proces = new CLProcesos();
         public FrmEmpleados()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace ProyectoFinal
         {
 
             string conn = "Data Source=LAPTOP-JC6HE824;Initial Catalog=ProyectoFinal;Integrated Security=True;";
-            ConnectionBD dbHelper = new ConnectionBD(conn);
+            CDConnectionBD dbHelper = new CDConnectionBD(conn);
 
             //se obtiene el datatable con datos de la consulta
             DataTable data = dbHelper.GetData("Select * from tbl_empleados");
