@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblMontoTotal = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtHorasExtras = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblBono = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblCodigoEmpleado = new System.Windows.Forms.Label();
             this.lblSalario = new System.Windows.Forms.Label();
             this.cboxEstado = new System.Windows.Forms.ComboBox();
             this.btnInicio = new System.Windows.Forms.Button();
@@ -57,13 +64,6 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblCodigoEmpleado = new System.Windows.Forms.Label();
-            this.lblBono = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtHorasExtras = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblMontoTotal = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
@@ -97,11 +97,79 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtCodigoPP);
             this.groupBox1.Controls.Add(this.dgvEmpleados);
-            this.groupBox1.Location = new System.Drawing.Point(62, 21);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(994, 572);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
+            // 
+            // lblMontoTotal
+            // 
+            this.lblMontoTotal.AutoSize = true;
+            this.lblMontoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMontoTotal.Location = new System.Drawing.Point(261, 165);
+            this.lblMontoTotal.Name = "lblMontoTotal";
+            this.lblMontoTotal.Size = new System.Drawing.Size(54, 20);
+            this.lblMontoTotal.TabIndex = 48;
+            this.lblMontoTotal.Text = "monto";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(105, 165);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(93, 20);
+            this.label13.TabIndex = 47;
+            this.label13.Text = "Monto Total";
+            // 
+            // txtHorasExtras
+            // 
+            this.txtHorasExtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHorasExtras.Location = new System.Drawing.Point(627, 164);
+            this.txtHorasExtras.Name = "txtHorasExtras";
+            this.txtHorasExtras.Size = new System.Drawing.Size(100, 26);
+            this.txtHorasExtras.TabIndex = 46;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(442, 164);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(101, 20);
+            this.label10.TabIndex = 45;
+            this.label10.Text = "Horas Extras";
+            // 
+            // lblBono
+            // 
+            this.lblBono.AutoSize = true;
+            this.lblBono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBono.Location = new System.Drawing.Point(262, 134);
+            this.lblBono.Name = "lblBono";
+            this.lblBono.Size = new System.Drawing.Size(45, 20);
+            this.lblBono.TabIndex = 44;
+            this.lblBono.Text = "bono";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(106, 134);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(47, 20);
+            this.label11.TabIndex = 43;
+            this.label11.Text = "Bono";
+            // 
+            // lblCodigoEmpleado
+            // 
+            this.lblCodigoEmpleado.AutoSize = true;
+            this.lblCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoEmpleado.Location = new System.Drawing.Point(260, 59);
+            this.lblCodigoEmpleado.Name = "lblCodigoEmpleado";
+            this.lblCodigoEmpleado.Size = new System.Drawing.Size(130, 20);
+            this.lblCodigoEmpleado.TabIndex = 42;
+            this.lblCodigoEmpleado.Text = "codigo empleado";
             // 
             // lblSalario
             // 
@@ -363,81 +431,13 @@
             this.FechaS.Name = "FechaS";
             this.FechaS.Width = 94;
             // 
-            // lblCodigoEmpleado
-            // 
-            this.lblCodigoEmpleado.AutoSize = true;
-            this.lblCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoEmpleado.Location = new System.Drawing.Point(260, 59);
-            this.lblCodigoEmpleado.Name = "lblCodigoEmpleado";
-            this.lblCodigoEmpleado.Size = new System.Drawing.Size(130, 20);
-            this.lblCodigoEmpleado.TabIndex = 42;
-            this.lblCodigoEmpleado.Text = "codigo empleado";
-            // 
-            // lblBono
-            // 
-            this.lblBono.AutoSize = true;
-            this.lblBono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBono.Location = new System.Drawing.Point(262, 134);
-            this.lblBono.Name = "lblBono";
-            this.lblBono.Size = new System.Drawing.Size(45, 20);
-            this.lblBono.TabIndex = 44;
-            this.lblBono.Text = "bono";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(106, 134);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 20);
-            this.label11.TabIndex = 43;
-            this.label11.Text = "Bono";
-            // 
-            // txtHorasExtras
-            // 
-            this.txtHorasExtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHorasExtras.Location = new System.Drawing.Point(627, 164);
-            this.txtHorasExtras.Name = "txtHorasExtras";
-            this.txtHorasExtras.Size = new System.Drawing.Size(100, 26);
-            this.txtHorasExtras.TabIndex = 46;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(442, 164);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(101, 20);
-            this.label10.TabIndex = 45;
-            this.label10.Text = "Horas Extras";
-            // 
-            // lblMontoTotal
-            // 
-            this.lblMontoTotal.AutoSize = true;
-            this.lblMontoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMontoTotal.Location = new System.Drawing.Point(261, 165);
-            this.lblMontoTotal.Name = "lblMontoTotal";
-            this.lblMontoTotal.Size = new System.Drawing.Size(54, 20);
-            this.lblMontoTotal.TabIndex = 48;
-            this.lblMontoTotal.Text = "monto";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(105, 165);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(93, 20);
-            this.label13.TabIndex = 47;
-            this.label13.Text = "Monto Total";
-            // 
-            // PagoPlanillas
+            // FrmPagoPlanillas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1166, 645);
+            this.ClientSize = new System.Drawing.Size(1015, 588);
             this.Controls.Add(this.groupBox1);
-            this.Name = "PagoPlanillas";
+            this.Name = "FrmPagoPlanillas";
             this.Text = "PagoPlanillas";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
