@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.lblCodigoEmpleado = new System.Windows.Forms.Label();
             this.cboxEstado = new System.Windows.Forms.ComboBox();
             this.cboxRol = new System.Windows.Forms.ComboBox();
@@ -50,8 +52,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCodigoUsuario = new System.Windows.Forms.TextBox();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.CodigoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,11 +88,29 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtCodigoUsuario);
             this.groupBox1.Controls.Add(this.dgvEmpleados);
-            this.groupBox1.Location = new System.Drawing.Point(227, 100);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(994, 572);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
+            // 
+            // txtNombreUsuario
+            // 
+            this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreUsuario.Location = new System.Drawing.Point(264, 56);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(100, 26);
+            this.txtNombreUsuario.TabIndex = 43;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(123, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 20);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Nombre Usuario";
             // 
             // lblCodigoEmpleado
             // 
@@ -317,24 +335,6 @@
             this.dgvEmpleados.Size = new System.Drawing.Size(716, 289);
             this.dgvEmpleados.TabIndex = 17;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(123, 59);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 20);
-            this.label5.TabIndex = 42;
-            this.label5.Text = "Nombre Usuario";
-            // 
-            // txtNombreUsuario
-            // 
-            this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreUsuario.Location = new System.Drawing.Point(264, 56);
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(100, 26);
-            this.txtNombreUsuario.TabIndex = 43;
-            // 
             // CodigoUsuario
             // 
             this.CodigoUsuario.HeaderText = "Codigo Usuario";
@@ -377,13 +377,13 @@
             this.FechaS.Name = "FechaS";
             this.FechaS.Width = 94;
             // 
-            // Usuarios
+            // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1448, 773);
+            this.ClientSize = new System.Drawing.Size(1019, 594);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Usuarios";
+            this.Name = "FrmUsuarios";
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.Usuarios_Load);
             this.groupBox1.ResumeLayout(false);
