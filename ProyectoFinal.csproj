@@ -53,7 +53,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Datos\CDConection.cs" />
+    <Compile Include="Datos\CDConexion.cs" />
     <Compile Include="Datos\CDConnectionBD.cs" />
     <Compile Include="Presentacion\FrmAsignaciones.cs">
       <SubType>Form</SubType>

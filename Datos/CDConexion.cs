@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace ProyectoFinal
 {
-    public class CDConection
+    public class CDConexion
     {
         //Agregar su propia conexion a la base de datos
         private SqlConnection conn = new SqlConnection("Data Source=CASITA\\SQLEXPRESS;Initial Catalog=db_hotel;Integrated Security=True;Encrypt=False");
