@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProyectoFinal
+namespace ProyectoFinal.Presentacion
 {
-    public partial class MenuNavegacion : Form
+    public partial class FrmHuespedes : Form
     {
-        public MenuNavegacion()
+        public FrmHuespedes()
         {
             InitializeComponent();
         }
