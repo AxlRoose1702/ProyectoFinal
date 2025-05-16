@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using ProyectoFinal.Datos;
+using ProyectoFinal.Logica;
 
 namespace ProyectoFinal
 {
     public partial class FrmEmpleados : Form
     {
-        CLProcesos proces = new CLProcesos();
+        //aqui se declaran los objetos de las clases
+        // CD Y CL
+        CLEmpleados cl_empleados = new CLEmpleados();
+        CDEmpleados cd_empleados = new CDEmpleados();
+
         public FrmEmpleados()
         {
             InitializeComponent();
@@ -17,18 +23,22 @@ namespace ProyectoFinal
             FrmMenuNavegacion nav = new FrmMenuNavegacion();
             nav.Show();
         }
+         
+        //metodo para consultar empleados, este se llama siempre al abrir la ventana
+        private void MtdConsultarEmpleados()
+        {
+            //se crea la tabla temporal  y se consulta la tabla empleados
+            // se hace llamado a través del CD y al metodo Consultar 
+            DataTable Dt = cd_empleados.MtdConsultarEmpleados();
+            dgvEmpleados.DataSource = Dt;
+        }
 
+        //Este es el load del form principal
         private void Empleados_Load(object sender, EventArgs e)
         {
-
-            string conn = "Data Source=LAPTOP-JC6HE824;Initial Catalog=ProyectoFinal;Integrated Security=True;";
-            CDConnectionBD dbHelper = new CDConnectionBD(conn);
-
-            //se obtiene el datatable con datos de la consulta
-            DataTable data = dbHelper.GetData("Select * from tbl_empleados");
-
-            //Asignar datos de la db en el datagridview
-            dgvEmpleados.DataSource = data;
+            //Este metodo lo tengo que crear antes, llamo al metodo consultar
+            //desde la clase CD
+            MtdConsultarEmpleados();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -57,7 +67,8 @@ namespace ProyectoFinal
                 else 
                 {
                     //Aqui se hace la logica para la insercion de datos a la BD
-                    metodoSalario = proces.SalarioEmpleado(cargo);
+                    // SE UTILIZO LA CLASE CL
+                    metodoSalario = cl_empleados.SalarioEmpleado(cargo);
 
                 }
 
@@ -75,7 +86,7 @@ namespace ProyectoFinal
                 string cargo;
                 double salario;
                 cargo = cboxCargo.Text;
-                salario = proces.SalarioEmpleado(cargo);
+                salario = cl_empleados.SalarioEmpleado(cargo);
                 
                 if (string.IsNullOrEmpty(cargo))
                 {
