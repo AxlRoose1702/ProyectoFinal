@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblSalario = new System.Windows.Forms.Label();
             this.cboxEstado = new System.Windows.Forms.ComboBox();
             this.cboxCargo = new System.Windows.Forms.ComboBox();
             this.btnInicio = new System.Windows.Forms.Button();
@@ -51,15 +52,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCodigoEmpleado = new System.Windows.Forms.TextBox();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UsuarioSistema = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblSalario = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
@@ -94,6 +86,16 @@
             this.groupBox1.Size = new System.Drawing.Size(994, 572);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
+            // 
+            // lblSalario
+            // 
+            this.lblSalario.AutoSize = true;
+            this.lblSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalario.Location = new System.Drawing.Point(260, 126);
+            this.lblSalario.Name = "lblSalario";
+            this.lblSalario.Size = new System.Drawing.Size(58, 20);
+            this.lblSalario.TabIndex = 41;
+            this.lblSalario.Text = "Salario";
             // 
             // cboxEstado
             // 
@@ -158,6 +160,7 @@
             this.btnEdit.TabIndex = 36;
             this.btnEdit.Text = "Editar";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnEliminar
             // 
@@ -309,6 +312,7 @@
             this.txtCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoEmpleado.Location = new System.Drawing.Point(264, 24);
             this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
+            this.txtCodigoEmpleado.ReadOnly = true;
             this.txtCodigoEmpleado.Size = new System.Drawing.Size(100, 26);
             this.txtCodigoEmpleado.TabIndex = 18;
             // 
@@ -316,86 +320,20 @@
             // 
             this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
-            this.Nombre,
-            this.Cargo,
-            this.Salario,
-            this.UsuarioSistema,
-            this.Estado,
-            this.FechaC,
-            this.FechaS});
             this.dgvEmpleados.Location = new System.Drawing.Point(126, 184);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmpleados.Size = new System.Drawing.Size(716, 289);
+            this.dgvEmpleados.Size = new System.Drawing.Size(717, 289);
             this.dgvEmpleados.TabIndex = 17;
+            this.dgvEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellClick);
             // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo Empleado";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.Width = 106;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 69;
-            // 
-            // Cargo
-            // 
-            this.Cargo.HeaderText = "Cargo";
-            this.Cargo.Name = "Cargo";
-            this.Cargo.Width = 60;
-            // 
-            // Salario
-            // 
-            this.Salario.HeaderText = "Salario";
-            this.Salario.Name = "Salario";
-            this.Salario.Width = 64;
-            // 
-            // UsuarioSistema
-            // 
-            this.UsuarioSistema.HeaderText = "Usuario Sistema";
-            this.UsuarioSistema.Name = "UsuarioSistema";
-            this.UsuarioSistema.Width = 99;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.Width = 65;
-            // 
-            // FechaC
-            // 
-            this.FechaC.HeaderText = "Fecha Contratacion";
-            this.FechaC.Name = "FechaC";
-            this.FechaC.Width = 115;
-            // 
-            // FechaS
-            // 
-            this.FechaS.HeaderText = "Fecha Sistema";
-            this.FechaS.Name = "FechaS";
-            this.FechaS.Width = 94;
-            // 
-            // lblSalario
-            // 
-            this.lblSalario.AutoSize = true;
-            this.lblSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSalario.Location = new System.Drawing.Point(260, 126);
-            this.lblSalario.Name = "lblSalario";
-            this.lblSalario.Size = new System.Drawing.Size(58, 20);
-            this.lblSalario.TabIndex = 41;
-            this.lblSalario.Text = "Salario";
-            // 
-            // Empleados
+            // FrmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1194, 629);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Empleados";
+            this.Name = "FrmEmpleados";
             this.Text = "Empleados";
             this.Load += new System.EventHandler(this.Empleados_Load);
             this.groupBox1.ResumeLayout(false);
@@ -427,14 +365,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cargo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Salario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioSistema;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaS;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.ComboBox cboxEstado;
         private System.Windows.Forms.ComboBox cboxCargo;
