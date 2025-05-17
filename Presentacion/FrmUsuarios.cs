@@ -9,8 +9,8 @@ namespace ProyectoFinal
     public partial class FrmUsuarios : Form
     {
         CLProcesos proces = new CLProcesos();
-        CLUsuarios cl_usuarios = new CLUsuarios();
-        CDUsuarios cd_usuarios = new CDUsuarios();
+        //CLUsuarios cl_usuarios = new CLUsuarios();
+        //CDUsuarios cd_usuarios = new CDUsuarios();
         public FrmUsuarios()
         {
             InitializeComponent();
