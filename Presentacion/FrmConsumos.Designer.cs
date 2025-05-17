@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnInicio = new FontAwesome.Sharp.IconButton();
+            this.btnCancel = new FontAwesome.Sharp.IconButton();
+            this.btnEditar = new FontAwesome.Sharp.IconButton();
+            this.btnEliminar = new FontAwesome.Sharp.IconButton();
+            this.btnAgregar = new FontAwesome.Sharp.IconButton();
             this.lblMonto = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dateConsumo = new System.Windows.Forms.DateTimePicker();
@@ -37,11 +42,6 @@
             this.lblCodigoReserva = new System.Windows.Forms.Label();
             this.lblCodigoServicio = new System.Windows.Forms.Label();
             this.cboxEstado = new System.Windows.Forms.ComboBox();
-            this.btnInicio = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.dateSistema = new System.Windows.Forms.DateTimePicker();
             this.txtUsuarioSistema = new System.Windows.Forms.TextBox();
@@ -52,20 +52,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.codigoconsumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoreserva = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoservicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuariosistema = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechasistema = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaconsumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnInicio);
+            this.groupBox1.Controls.Add(this.btnCancel);
+            this.groupBox1.Controls.Add(this.btnEditar);
+            this.groupBox1.Controls.Add(this.btnEliminar);
+            this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.lblMonto);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.dateConsumo);
@@ -74,11 +71,6 @@
             this.groupBox1.Controls.Add(this.lblCodigoReserva);
             this.groupBox1.Controls.Add(this.lblCodigoServicio);
             this.groupBox1.Controls.Add(this.cboxEstado);
-            this.groupBox1.Controls.Add(this.btnInicio);
-            this.groupBox1.Controls.Add(this.btnCancelar);
-            this.groupBox1.Controls.Add(this.btnEdit);
-            this.groupBox1.Controls.Add(this.btnEliminar);
-            this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.dateSistema);
             this.groupBox1.Controls.Add(this.txtUsuarioSistema);
@@ -94,6 +86,86 @@
             this.groupBox1.Size = new System.Drawing.Size(994, 572);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
+            // 
+            // btnInicio
+            // 
+            this.btnInicio.AutoSize = true;
+            this.btnInicio.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnInicio.IconChar = FontAwesome.Sharp.IconChar.HomeUser;
+            this.btnInicio.IconColor = System.Drawing.Color.Black;
+            this.btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInicio.Location = new System.Drawing.Point(860, 144);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.Size = new System.Drawing.Size(103, 54);
+            this.btnInicio.TabIndex = 76;
+            this.btnInicio.Text = "Inicio";
+            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInicio.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.AutoSize = true;
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.PersonCircleExclamation;
+            this.btnCancel.IconColor = System.Drawing.Color.Black;
+            this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(860, 84);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(103, 54);
+            this.btnCancel.TabIndex = 75;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.AutoSize = true;
+            this.btnEditar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.PersonCircleQuestion;
+            this.btnEditar.IconColor = System.Drawing.Color.Black;
+            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(760, 83);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(94, 54);
+            this.btnEditar.TabIndex = 74;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.AutoSize = true;
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.PersonCircleXmark;
+            this.btnEliminar.IconColor = System.Drawing.Color.Black;
+            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(860, 24);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(103, 54);
+            this.btnEliminar.TabIndex = 73;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.AutoSize = true;
+            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAgregar.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            this.btnAgregar.IconColor = System.Drawing.Color.Black;
+            this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(760, 23);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(94, 54);
+            this.btnAgregar.TabIndex = 72;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar.UseVisualStyleBackColor = true;
             // 
             // lblMonto
             // 
@@ -177,61 +249,6 @@
             this.cboxEstado.Name = "cboxEstado";
             this.cboxEstado.Size = new System.Drawing.Size(100, 26);
             this.cboxEstado.TabIndex = 40;
-            // 
-            // btnInicio
-            // 
-            this.btnInicio.AutoSize = true;
-            this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInicio.Location = new System.Drawing.Point(849, 27);
-            this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(82, 30);
-            this.btnInicio.TabIndex = 38;
-            this.btnInicio.Text = "Inicio";
-            this.btnInicio.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.AutoSize = true;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(849, 63);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(82, 30);
-            this.btnCancelar.TabIndex = 37;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.AutoSize = true;
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(767, 63);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(76, 30);
-            this.btnEdit.TabIndex = 36;
-            this.btnEdit.Text = "Editar";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.AutoSize = true;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(767, 99);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(76, 30);
-            this.btnEliminar.TabIndex = 35;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.AutoSize = true;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(767, 27);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(76, 30);
-            this.btnAdd.TabIndex = 18;
-            this.btnAdd.Text = "Agregar";
-            this.btnAdd.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -323,67 +340,11 @@
             // 
             this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codigoconsumo,
-            this.codigoreserva,
-            this.codigoservicio,
-            this.monto,
-            this.usuariosistema,
-            this.estado,
-            this.fechasistema,
-            this.fechaconsumo});
             this.dgvEmpleados.Location = new System.Drawing.Point(108, 266);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleados.Size = new System.Drawing.Size(823, 289);
             this.dgvEmpleados.TabIndex = 17;
-            // 
-            // codigoconsumo
-            // 
-            this.codigoconsumo.HeaderText = "Codigo Consumo";
-            this.codigoconsumo.Name = "codigoconsumo";
-            this.codigoconsumo.Width = 103;
-            // 
-            // codigoreserva
-            // 
-            this.codigoreserva.HeaderText = "Codigo Reserva";
-            this.codigoreserva.Name = "codigoreserva";
-            this.codigoreserva.Width = 99;
-            // 
-            // codigoservicio
-            // 
-            this.codigoservicio.HeaderText = "Codigo Servicio";
-            this.codigoservicio.Name = "codigoservicio";
-            this.codigoservicio.Width = 97;
-            // 
-            // monto
-            // 
-            this.monto.HeaderText = "Monto";
-            this.monto.Name = "monto";
-            this.monto.Width = 62;
-            // 
-            // usuariosistema
-            // 
-            this.usuariosistema.HeaderText = "Usuario Sistema";
-            this.usuariosistema.Name = "usuariosistema";
-            this.usuariosistema.Width = 99;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.Width = 65;
-            // 
-            // fechasistema
-            // 
-            this.fechasistema.HeaderText = "Fecha Sistema";
-            this.fechasistema.Name = "fechasistema";
-            this.fechasistema.Width = 94;
-            // 
-            // fechaconsumo
-            // 
-            this.fechaconsumo.HeaderText = "Fecha Consumo";
-            this.fechaconsumo.Name = "fechaconsumo";
             // 
             // FrmConsumos
             // 
@@ -411,11 +372,6 @@
         private System.Windows.Forms.Label lblCodigoReserva;
         private System.Windows.Forms.Label lblCodigoServicio;
         private System.Windows.Forms.ComboBox cboxEstado;
-        private System.Windows.Forms.Button btnInicio;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dateSistema;
         private System.Windows.Forms.TextBox txtUsuarioSistema;
@@ -426,13 +382,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvEmpleados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoconsumo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoreserva;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoservicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn monto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuariosistema;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechasistema;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaconsumo;
+        private FontAwesome.Sharp.IconButton btnInicio;
+        private FontAwesome.Sharp.IconButton btnCancel;
+        private FontAwesome.Sharp.IconButton btnEditar;
+        private FontAwesome.Sharp.IconButton btnEliminar;
+        private FontAwesome.Sharp.IconButton btnAgregar;
     }
 }

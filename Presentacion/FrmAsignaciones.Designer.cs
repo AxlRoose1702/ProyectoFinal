@@ -52,14 +52,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.codigoasignacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoempleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigohabitacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoasignacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuariosistema = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaasignacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechasistema = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
@@ -353,68 +345,11 @@
             // 
             this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codigoasignacion,
-            this.codigoempleado,
-            this.codigohabitacion,
-            this.tipoasignacion,
-            this.usuariosistema,
-            this.estado,
-            this.fechaasignacion,
-            this.fechasistema});
             this.dgvEmpleados.Location = new System.Drawing.Point(108, 266);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleados.Size = new System.Drawing.Size(832, 289);
             this.dgvEmpleados.TabIndex = 17;
-            // 
-            // codigoasignacion
-            // 
-            this.codigoasignacion.HeaderText = "Codigo Asignacion";
-            this.codigoasignacion.Name = "codigoasignacion";
-            this.codigoasignacion.Width = 110;
-            // 
-            // codigoempleado
-            // 
-            this.codigoempleado.HeaderText = "Codigo Empleado";
-            this.codigoempleado.Name = "codigoempleado";
-            this.codigoempleado.Width = 106;
-            // 
-            // codigohabitacion
-            // 
-            this.codigohabitacion.HeaderText = "Codigo Habitacion";
-            this.codigohabitacion.Name = "codigohabitacion";
-            this.codigohabitacion.Width = 109;
-            // 
-            // tipoasignacion
-            // 
-            this.tipoasignacion.HeaderText = "Tipo Asignacion";
-            this.tipoasignacion.Name = "tipoasignacion";
-            this.tipoasignacion.Width = 99;
-            // 
-            // usuariosistema
-            // 
-            this.usuariosistema.HeaderText = "Usuario Sistema";
-            this.usuariosistema.Name = "usuariosistema";
-            this.usuariosistema.Width = 99;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.Width = 65;
-            // 
-            // fechaasignacion
-            // 
-            this.fechaasignacion.HeaderText = "Fecha Asignacion";
-            this.fechaasignacion.Name = "fechaasignacion";
-            this.fechaasignacion.Width = 107;
-            // 
-            // fechasistema
-            // 
-            this.fechasistema.HeaderText = "Fecha Sistema";
-            this.fechasistema.Name = "fechasistema";
-            this.fechasistema.Width = 94;
             // 
             // FrmAsignaciones
             // 
@@ -452,14 +387,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvEmpleados;
         private System.Windows.Forms.ComboBox cboxTipoHabitacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoasignacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoempleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigohabitacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoasignacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuariosistema;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaasignacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechasistema;
         private FontAwesome.Sharp.IconButton btnInicio;
         private FontAwesome.Sharp.IconButton btnCancel;
         private FontAwesome.Sharp.IconButton btnEditar;
