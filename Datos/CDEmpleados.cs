@@ -54,7 +54,7 @@ namespace ProyectoFinal.Datos
             cd_conexion.MtdCerrarConexion();
         }
 
-        public void MtdEliminarDEmpleados(int CodigoEmpleado)
+        public void MtdEliminarEmpleados(int CodigoEmpleado)
         {
             string QueryEliminarEmpleado = "Delete tbl_Empleados where CodigoEmpleado=@CodigoEmpleado";
             SqlCommand cmd = new SqlCommand(QueryEliminarEmpleado, cd_conexion.MtdAbrirConexion());

@@ -169,7 +169,7 @@ namespace ProyectoFinal
         
         }
         public void mtdLimpiarCampos()
-        {
+        {//metodo para limpiar los campos
             txtNombre.Clear();
             txtUsuarioSistema.Clear();
             cboxCargo.Text = "Seleccionar";
@@ -180,8 +180,34 @@ namespace ProyectoFinal
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            //Cambiar a icono de cancelar
             mtdLimpiarCampos();
 
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            //Cambiar a icono de eliminar
+            if (string.IsNullOrEmpty(txtCodigoEmpleado.Text))
+            {
+                MessageBox.Show("Favor seleccionar fila a eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int CodigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
+
+                try
+                {
+                    cd_empleados.MtdEliminarEmpleados(CodigoEmpleado);
+                    MessageBox.Show("Empleado eliminado correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MtdConsultarEmpleados();
+                    mtdLimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
