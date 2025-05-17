@@ -39,49 +39,47 @@ namespace ProyectoFinal
             //Este metodo lo tengo que crear antes, llamo al metodo consultar
             //desde la clase CD
             MtdConsultarEmpleados();
+            mtdLimpiarCampos();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try
+            //agregarle icons a este boton AGREGAR
+            if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtUsuarioSistema.Text))
             {
-                //Declaracion de todas las variables con todos los objetos del form
-                double metodoSalario;
-
-                string cargo = cboxCargo.Text;
-                string nombre = txtNombre.Text;
-                string estado = cboxEstado.Text;
-                DateTime fechaS = dateFechaSistema.Value;
-                DateTime fechaC = dateFechaContratacion.Value;
-                int codigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
-                double salario = double.Parse(lblSalario.Text);
-                string usuarioSistema = txtUsuarioSistema.Text;
-
-                if (string.IsNullOrEmpty(cargo) || string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(codigoEmpleado.ToString()) || string.IsNullOrEmpty(usuarioSistema))
-                {
-                    MessageBox.Show("Hay datos vacios en el formulario");
-                }
-                else if (estado != "Activo" && estado != "Inactivo" && estado != "Suspendido" && estado != "Despedido")
-                {
-                    MessageBox.Show("Hay datos sin seleccionar en el formulario");
-                }
-                else 
-                {
-                    //Aqui se hace la logica para la insercion de datos a la BD
-                    // se utiliza clase cd
-                    cd_empleados.MtdAgregarEmpleados(nombre, cargo, salario, fechaC, estado, usuarioSistema, fechaC); //revisar porque no agrega, ver la cadena que se esta enviandos
-                    // SE UTILIZO LA CLASE CL
-                    metodoSalario = cl_empleados.SalarioEmpleado(cargo);
-
-                }
-
+                MessageBox.Show("Favor completar nombre y Usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
+            else if (string.IsNullOrEmpty(cboxCargo.Text) || cboxCargo.Text=="Seleccionar" 
+                 || string.IsNullOrEmpty(cboxEstado.Text) || cboxEstado.Text=="Seleccionar")
             {
-                MessageBox.Show(ex.Message, "Advertencia!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Favor seleccionar una opción de cargo y estado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else
+            {
+                string Nombre = txtNombre.Text;
+                string Cargo = cboxCargo.Text;
+                double Salario = cl_empleados.SalarioEmpleado(Cargo);
+                DateTime FechaContratacion = dateFechaContratacion.Value;
+                string Estado = cboxEstado.Text;
+                string UsuarioSistema = txtUsuarioSistema.Text;
+                DateTime FechaSistema = dateFechaSistema.Value;
+                //se declaran las variables de auditoria
+
+                try
+                {
+                    //se llama al metodo de agregar empleado en la clase CD
+                    cd_empleados.MtdAgregarEmpleados(Nombre, Cargo, Salario, FechaContratacion, Estado, UsuarioSistema, FechaSistema);
+                    MessageBox.Show("Datos agregados correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MtdConsultarEmpleados();
+                    mtdLimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            
         }
-
         private void cboxCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -132,33 +130,58 @@ namespace ProyectoFinal
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            //Declaracion de todas las variables con todos los objetos del form
-            string cargo = cboxCargo.Text;
-            string nombre = txtNombre.Text;
-            string estado = cboxEstado.Text;
-            DateTime fechaS = dateFechaSistema.Value;
-            DateTime fechaC = dateFechaContratacion.Value;
-            int codigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
-            string usuarioSistema = txtUsuarioSistema.Text;
-            double salario = double.Parse(lblSalario.Text);
-
-            if (string.IsNullOrEmpty(cargo) || string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(codigoEmpleado.ToString()) || string.IsNullOrEmpty(usuarioSistema))
+            //agregarle icons a este boton AGREGAR
+            if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtUsuarioSistema.Text))
             {
-                MessageBox.Show("Favor ingresar todos los datos en pantalla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Favor completar nombre y Usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrEmpty(cboxCargo.Text) || cboxCargo.Text == "Seleccionar"
+                 || string.IsNullOrEmpty(cboxEstado.Text) || cboxEstado.Text == "Seleccionar")
+            {
+                MessageBox.Show("Favor seleccionar una opción de cargo y estado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
             else
             {
+                int CodigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
+                string Nombre = txtNombre.Text;
+                string Cargo = cboxCargo.Text;
+                double Salario = cl_empleados.SalarioEmpleado(Cargo);
+                DateTime FechaContratacion = dateFechaContratacion.Value;
+                string Estado = cboxEstado.Text;
+                string UsuarioSistema = txtUsuarioSistema.Text;
+                DateTime FechaSistema = dateFechaSistema.Value;
+                //se declaran las variables de auditoria
+                
                 try
                 {
-                    cd_empleados.MtdActualizarEmpleados(codigoEmpleado, nombre, cargo, salario,fechaC, estado, usuarioSistema, fechaS);
-                    MessageBox.Show("Medicamento actualizado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //se llama al metodo de ACTUALIZAR empleado en la clase CD
+                    cd_empleados.MtdActualizarEmpleados(CodigoEmpleado, Nombre, Cargo, Salario, FechaContratacion, Estado, UsuarioSistema, FechaSistema);
+                    MessageBox.Show("Datos actualizados correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MtdConsultarEmpleados();
+                    mtdLimpiarCampos();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        
+        }
+        public void mtdLimpiarCampos()
+        {
+            txtNombre.Clear();
+            txtUsuarioSistema.Clear();
+            cboxCargo.Text = "Seleccionar";
+            cboxEstado.Text = "Seleccionar";
+            lblSalario.Text = "0.00";
+            txtCodigoEmpleado.Clear();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            mtdLimpiarCampos();
+
         }
     }
 }

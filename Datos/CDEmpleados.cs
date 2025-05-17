@@ -25,7 +25,7 @@ namespace ProyectoFinal.Datos
 
         public void MtdAgregarEmpleados(string Nombre, string Cargo, double Salario, DateTime FechaContratacion, string Estado, string UsuarioSistema, DateTime FechaSistema)
         {
-            string QueryAgregarEmpleados = "Insert into tbl_Empleados(Nombre,Cargo,Salario, FechaContratacion, Estado, UsuarioSistema, FechaSistema) values (@Nombre,@Cargo,Salario, @FechaContratacion, @Estado, @UsuarioSistema, @FechaSistema)";
+            string QueryAgregarEmpleados = "Insert into tbl_Empleados(Nombre, Cargo, Salario, FechaContratacion, Estado, UsuarioSistema, FechaSistema) values (@Nombre,@Cargo,@Salario, @FechaContratacion, @Estado, @UsuarioSistema, @FechaSistema)";
             SqlCommand cmd = new SqlCommand(QueryAgregarEmpleados, cd_conexion.MtdAbrirConexion());
             cmd.Parameters.AddWithValue("@Nombre", Nombre);
             cmd.Parameters.AddWithValue("@Cargo", Cargo);
@@ -33,7 +33,6 @@ namespace ProyectoFinal.Datos
             cmd.Parameters.AddWithValue("@FechaContratacion", FechaContratacion);
             cmd.Parameters.AddWithValue("@Estado", Estado);
             cmd.Parameters.AddWithValue("@UsuarioSistema", UsuarioSistema);
-            cmd.Parameters.AddWithValue("@Estado", Estado);
             cmd.Parameters.AddWithValue("@FechaSistema", FechaSistema);
             cmd.ExecuteNonQuery();
             cd_conexion.MtdCerrarConexion();
@@ -41,15 +40,15 @@ namespace ProyectoFinal.Datos
 
         public void MtdActualizarEmpleados(int CodigoEmpleado, string Nombre, string Cargo, double Salario, DateTime FechaContratacion, string Estado, string UsuarioSistema, DateTime FechaSistema)
         {
-            string QueryActualizarEmpleados = "Update tbl_Empleados set Nombre=@Nombre, Cargo=@Cargo, Salario=@Salario, Stock=@Stock, FechaContratacion=@FechaContratacion, Estado=@Estado, UsuarioSistema=@UsuarioSistema, FechaSistema=@FechaSistema where CodigoEmpleado=@CodigoEmpleado";
+            string QueryActualizarEmpleados = "Update tbl_Empleados set Nombre=@Nombre, Cargo=@Cargo, Salario=@Salario, FechaContratacion=@FechaContratacion, Estado=@Estado, UsuarioSistema=@UsuarioSistema, FechaSistema=@FechaSistema where CodigoEmpleado=@CodigoEmpleado";
             SqlCommand cmd = new SqlCommand(QueryActualizarEmpleados, cd_conexion.MtdAbrirConexion());
+            cmd.Parameters.AddWithValue("@CodigoEmpleado", CodigoEmpleado);
             cmd.Parameters.AddWithValue("@Nombre", Nombre);
             cmd.Parameters.AddWithValue("@Cargo", Cargo);
             cmd.Parameters.AddWithValue("@Salario", Salario);
             cmd.Parameters.AddWithValue("@FechaContratacion", FechaContratacion);
             cmd.Parameters.AddWithValue("@Estado", Estado);
             cmd.Parameters.AddWithValue("@UsuarioSistema", UsuarioSistema);
-            cmd.Parameters.AddWithValue("@Estado", Estado);
             cmd.Parameters.AddWithValue("@FechaSistema", FechaSistema);
             cmd.ExecuteNonQuery();
             cd_conexion.MtdCerrarConexion();
