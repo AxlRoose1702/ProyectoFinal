@@ -82,9 +82,9 @@
             this.groupBox1.Controls.Add(this.txtCodigoEmpleado);
             this.groupBox1.Controls.Add(this.dgvEmpleados);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1059, 654);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
@@ -110,7 +110,7 @@
             "Suspendido",
             "Despedido"});
             this.cboxEstado.Location = new System.Drawing.Point(689, 91);
-            this.cboxEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxEstado.Margin = new System.Windows.Forms.Padding(4);
             this.cboxEstado.Name = "cboxEstado";
             this.cboxEstado.Size = new System.Drawing.Size(132, 32);
             this.cboxEstado.TabIndex = 40;
@@ -126,7 +126,7 @@
             "Conserje",
             "Chef"});
             this.cboxCargo.Location = new System.Drawing.Point(205, 123);
-            this.cboxCargo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxCargo.Margin = new System.Windows.Forms.Padding(4);
             this.cboxCargo.Name = "cboxCargo";
             this.cboxCargo.Size = new System.Drawing.Size(132, 32);
             this.cboxCargo.TabIndex = 39;
@@ -137,7 +137,7 @@
             this.btnInicio.AutoSize = true;
             this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.Location = new System.Drawing.Point(22, 607);
-            this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(4);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Size = new System.Drawing.Size(109, 43);
             this.btnInicio.TabIndex = 38;
@@ -150,7 +150,7 @@
             this.btnCancelar.AutoSize = true;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(896, 163);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(135, 43);
             this.btnCancelar.TabIndex = 37;
@@ -162,7 +162,7 @@
             this.btnEdit.AutoSize = true;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Location = new System.Drawing.Point(896, 112);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(135, 43);
             this.btnEdit.TabIndex = 36;
@@ -174,19 +174,20 @@
             this.btnEliminar.AutoSize = true;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Location = new System.Drawing.Point(910, 593);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(121, 43);
             this.btnEliminar.TabIndex = 35;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.AutoSize = true;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(896, 61);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(135, 43);
             this.btnAdd.TabIndex = 18;
@@ -209,7 +210,7 @@
             // 
             this.dateFechaSistema.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateFechaSistema.Location = new System.Drawing.Point(690, 167);
-            this.dateFechaSistema.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateFechaSistema.Margin = new System.Windows.Forms.Padding(4);
             this.dateFechaSistema.Name = "dateFechaSistema";
             this.dateFechaSistema.Size = new System.Drawing.Size(132, 22);
             this.dateFechaSistema.TabIndex = 33;
@@ -218,7 +219,7 @@
             // 
             this.dateFechaContratacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateFechaContratacion.Location = new System.Drawing.Point(690, 131);
-            this.dateFechaContratacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateFechaContratacion.Margin = new System.Windows.Forms.Padding(4);
             this.dateFechaContratacion.Name = "dateFechaContratacion";
             this.dateFechaContratacion.Size = new System.Drawing.Size(132, 22);
             this.dateFechaContratacion.TabIndex = 32;
@@ -227,7 +228,7 @@
             // 
             this.txtUsuarioSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuarioSistema.Location = new System.Drawing.Point(690, 47);
-            this.txtUsuarioSistema.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsuarioSistema.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuarioSistema.Name = "txtUsuarioSistema";
             this.txtUsuarioSistema.Size = new System.Drawing.Size(132, 30);
             this.txtUsuarioSistema.TabIndex = 31;
@@ -236,7 +237,7 @@
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(205, 86);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(132, 30);
             this.txtNombre.TabIndex = 27;
@@ -333,7 +334,7 @@
             // 
             this.txtCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoEmpleado.Location = new System.Drawing.Point(205, 47);
-            this.txtCodigoEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigoEmpleado.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
             this.txtCodigoEmpleado.Size = new System.Drawing.Size(132, 30);
             this.txtCodigoEmpleado.TabIndex = 18;
@@ -343,12 +344,13 @@
             this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Location = new System.Drawing.Point(22, 229);
-            this.dgvEmpleados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvEmpleados.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.RowHeadersWidth = 51;
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleados.Size = new System.Drawing.Size(1009, 356);
             this.dgvEmpleados.TabIndex = 17;
+            this.dgvEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellClick);
             // 
             // FrmEmpleados
             // 
@@ -356,7 +358,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1090, 681);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmEmpleados";
             this.Text = "Empleados";
             this.Load += new System.EventHandler(this.Empleados_Load);
