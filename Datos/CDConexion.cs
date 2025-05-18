@@ -8,7 +8,7 @@ namespace ProyectoFinal
         //Agregar su propia conexion a la base de datos
         private SqlConnection conn = new SqlConnection("Data Source=CASITA\\SQLEXPRESS;Initial Catalog=db_hotel;Integrated Security=True;Encrypt=False");
         //private SqlConnection conn = new SqlConnection("Data Source=MODIFICAR AQUI PAUL;Initial Catalog=db_hotel;Integrated Security=True;Encrypt=False");
-        //private SqlConnection conn = new SqlConnection("Data Source=MODIFICAR AQUI MOSQUITO;Initial Catalog=db_hotel;Integrated Security=True;Encrypt=False");
+        //private SqlConnection conn = new SqlConnection("Data Source=LAPTOP-JC6HE824;Initial Catalog=db_hotel;Integrated Security=True;Encrypt=False");
 
 
         public SqlConnection MtdAbrirConexion()
