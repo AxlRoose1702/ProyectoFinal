@@ -29,6 +29,7 @@ namespace ProyectoFinal
             txtUsuarioSistema.Clear();
             cboxEstado.Text = "Seleccionar";
             cboxRol.Text = "Seleccionar";
+            lblCodigoEmpleado.Text = "";
         }
 
         /*
