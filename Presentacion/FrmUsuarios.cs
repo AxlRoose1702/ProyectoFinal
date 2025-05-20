@@ -9,32 +9,48 @@ namespace ProyectoFinal
     public partial class FrmUsuarios : Form
     {
         CLProcesos proces = new CLProcesos();
-        //CLUsuarios cl_usuarios = new CLUsuarios();
-        //CDUsuarios cd_usuarios = new CDUsuarios();
+        CLUsuarios cl_usuarios = new CLUsuarios();
+        CDUsuarios cd_usuarios = new CDUsuarios();
+
+        //metodo para consultar usuarios, este se llama siempre al abrir la ventana
+        private void MtdConsultarUsuarios()
+        {
+            //se crea la tabla temporal  y se consulta la tabla usuarios
+            // se hace llamado a través del CD y al metodo Consultar 
+            DataTable Dt = cd_usuarios.MtdConsultarUsuarios();
+            dgvUsuarios.DataSource = Dt;
+        }
+
+        public void mtdLimpiarCampos()
+        {//metodo para limpiar los campos
+            txtCodigoUsuario.Clear();
+            txtNombreUsuario.Clear();
+            txtPassword.Clear();
+            txtUsuarioSistema.Clear();
+            cboxEstado.Text = "Seleccionar";
+            cboxRol.Text = "Seleccionar";
+        }
+
+        /*
+           Para que el programa funcione debe contener lo siguiente:
+               Boton configurado de:
+                   AGREGAR
+                   EDITAR
+                   CANCELAR
+                   ELIMINAR
+               MTDConsultar
+               MTDLimpiar
+               Modificar el LOAD
+               DGV Cell click 
+        */
         public FrmUsuarios()
         {
             InitializeComponent();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //Declaracion de todas las variables con todos los objetos del form
-                int codigoUsuario = int.Parse(txtCodigoUsuario.Text);
-                int codigoEmpleado = int.Parse(lblCodigoEmpleado.Text);
-                string nombre = txtNombreUsuario.Text;
-                string contrasena = txtPassword.Text;
-                string rol = cboxRol.Text;
-                string estado = cboxEstado.Text;
-                string usuarioSistema = txtUsuarioSistema.Text;
-                DateTime fechaS = dateFechaSistema.Value;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Advertencia!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+        {//Un pequeño desliz de dedo :)
+         }
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
@@ -42,10 +58,146 @@ namespace ProyectoFinal
             nav.Show();
         }
 
+        //AQUI ESTÁ EL LOAD
         private void Usuarios_Load(object sender, EventArgs e)
         {
-           
+            //Este metodo lo tengo que crear antes, llamo al metodo consultar
+            //desde la clase CD
+            MtdConsultarUsuarios();
+            mtdLimpiarCampos();
 
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombreUsuario.Text) || string.IsNullOrEmpty(txtUsuarioSistema.Text)
+             || string.IsNullOrEmpty(txtPassword.Text))
+            {
+                MessageBox.Show("Favor completar NombreUsuario, UsuarioSistema y Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrEmpty(cboxRol.Text) || cboxRol.Text == "Seleccionar"
+                 || string.IsNullOrEmpty(cboxEstado.Text) || cboxEstado.Text == "Seleccionar")
+            {
+                MessageBox.Show("Favor seleccionar una opción de Rol y Estado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                //Declaracion de todas las variables con todos los objetos del form
+                int codigoUsuario = int.Parse(txtCodigoUsuario.Text);
+                int codigoEmpleado = int.Parse(lblCodigoEmpleado.Text);
+                string nombreUsuario = txtNombreUsuario.Text;
+                string contrasena = txtPassword.Text;
+                string rol = cboxRol.Text;
+                string estado = cboxEstado.Text;
+                string usuarioSistema = txtUsuarioSistema.Text;
+                DateTime fechaS = dateFechaSistema.Value;
+
+                try
+                {
+                    //se llama al metodo de agregar empleado en la clase CD
+                    cd_usuarios.MtdAgregarUsuarios(codigoEmpleado, nombreUsuario, contrasena, rol, estado, usuarioSistema, fechaS);
+                    MessageBox.Show("Datos agregados correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MtdConsultarUsuarios();
+                    mtdLimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            //las condiciones if-else se repiten en el boton agregar y editar, pero no se pueden poner en un metodo
+            if (string.IsNullOrEmpty(txtNombreUsuario.Text) || string.IsNullOrEmpty(txtUsuarioSistema.Text)
+            || string.IsNullOrEmpty(txtPassword.Text))
+            {
+                MessageBox.Show("Favor completar NombreUsuario, UsuarioSistema y Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrEmpty(cboxRol.Text) || cboxRol.Text == "Seleccionar"
+                 || string.IsNullOrEmpty(cboxEstado.Text) || cboxEstado.Text == "Seleccionar")
+            {
+                MessageBox.Show("Favor seleccionar una opción de Rol y Estado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                //Declaracion de todas las variables con todos los objetos del form
+                int codigoUsuario = int.Parse(txtCodigoUsuario.Text);
+                int codigoEmpleado = int.Parse(lblCodigoEmpleado.Text);
+                string nombreUsuario = txtNombreUsuario.Text;
+                string contrasena = txtPassword.Text;
+                string rol = cboxRol.Text;
+                string estado = cboxEstado.Text;
+                string usuarioSistema = txtUsuarioSistema.Text;
+                DateTime fechaS = dateFechaSistema.Value;
+                //ESTO ES LO MISMO QUE EN EL BOTON AGREGAR
+
+
+                try
+                {
+                    //se llama al metodo de ACTUALIZAR empleado en la clase CD
+                    cd_usuarios.MtdActualizarUsuarios(codigoEmpleado, nombreUsuario, contrasena, rol, estado, usuarioSistema, fechaS);
+                    MessageBox.Show("Datos actualizados correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MtdConsultarUsuarios(); //esto recarga la dgv para ver los cambios
+                    mtdLimpiarCampos(); //limpia los datos que hemos actualizado
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var FilaSeleccionada = dgvUsuarios.SelectedRows[0];
+
+            if (FilaSeleccionada.Index == dgvUsuarios.RowCount - 1)
+            {
+                MessageBox.Show("Seleccione una fila con datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                txtCodigoUsuario.Text = dgvUsuarios.SelectedCells[0].Value.ToString();
+                lblCodigoEmpleado.Text = dgvUsuarios.SelectedCells[1].Value.ToString();
+                txtNombreUsuario.Text = dgvUsuarios.SelectedCells[2].Value.ToString();
+                txtPassword.Text = dgvUsuarios.SelectedCells[3].Value.ToString();
+                cboxRol.Text = dgvUsuarios.SelectedCells[4].Value.ToString();
+                cboxEstado.Text = dgvUsuarios.SelectedCells[5].Value.ToString();
+                txtUsuarioSistema.Text = dgvUsuarios.SelectedCells[6].Value.ToString();
+                dateFechaSistema.Text = dgvUsuarios.SelectedCells[7].Value.ToString();
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            mtdLimpiarCampos();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCodigoUsuario.Text))
+            {
+                MessageBox.Show("Favor seleccionar fila a eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int CodigoUsuario = int.Parse(txtCodigoUsuario.Text);
+
+                try
+                {
+                    cd_usuarios.MtdEliminarUsuarios(CodigoUsuario);
+                    MessageBox.Show("Usuario eliminado correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MtdConsultarUsuarios();
+                    mtdLimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
