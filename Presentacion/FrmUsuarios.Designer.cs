@@ -36,7 +36,6 @@
             this.btnAgregar = new FontAwesome.Sharp.IconButton();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblCodigoEmpleado = new System.Windows.Forms.Label();
             this.cboxEstado = new System.Windows.Forms.ComboBox();
             this.cboxRol = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -52,12 +51,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCodigoUsuario = new System.Windows.Forms.TextBox();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.txtCodigoEmpleado = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCodigoEmpleado);
             this.groupBox1.Controls.Add(this.btnInicio);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.btnEditar);
@@ -65,7 +66,6 @@
             this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.txtNombreUsuario);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.lblCodigoEmpleado);
             this.groupBox1.Controls.Add(this.cboxEstado);
             this.groupBox1.Controls.Add(this.cboxRol);
             this.groupBox1.Controls.Add(this.label9);
@@ -197,17 +197,6 @@
             this.label5.Size = new System.Drawing.Size(153, 25);
             this.label5.TabIndex = 42;
             this.label5.Text = "Nombre Usuario";
-            // 
-            // lblCodigoEmpleado
-            // 
-            this.lblCodigoEmpleado.AutoSize = true;
-            this.lblCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoEmpleado.Location = new System.Drawing.Point(203, 128);
-            this.lblCodigoEmpleado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCodigoEmpleado.Name = "lblCodigoEmpleado";
-            this.lblCodigoEmpleado.Size = new System.Drawing.Size(161, 25);
-            this.lblCodigoEmpleado.TabIndex = 41;
-            this.lblCodigoEmpleado.Text = "codigo empleado";
             // 
             // cboxEstado
             // 
@@ -375,6 +364,15 @@
             this.dgvUsuarios.TabIndex = 17;
             this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
             // 
+            // txtCodigoEmpleado
+            // 
+            this.txtCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoEmpleado.Location = new System.Drawing.Point(208, 128);
+            this.txtCodigoEmpleado.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
+            this.txtCodigoEmpleado.Size = new System.Drawing.Size(132, 30);
+            this.txtCodigoEmpleado.TabIndex = 77;
+            // 
             // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -395,7 +393,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblCodigoEmpleado;
         private System.Windows.Forms.ComboBox cboxEstado;
         private System.Windows.Forms.ComboBox cboxRol;
         private System.Windows.Forms.Label label9;
@@ -418,5 +415,6 @@
         private FontAwesome.Sharp.IconButton btnEditar;
         private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnAgregar;
+        private System.Windows.Forms.TextBox txtCodigoEmpleado;
     }
 }

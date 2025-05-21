@@ -29,7 +29,7 @@ namespace ProyectoFinal
             txtUsuarioSistema.Clear();
             cboxEstado.Text = "Seleccionar";
             cboxRol.Text = "Seleccionar";
-            lblCodigoEmpleado.Text = "";
+            txtCodigoEmpleado.Text = "";
         }
 
         /*
@@ -85,7 +85,7 @@ namespace ProyectoFinal
             {
                 //Declaracion de todas las variables con todos los objetos del form
                 int codigoUsuario = int.Parse(txtCodigoUsuario.Text);
-                int codigoEmpleado = int.Parse(lblCodigoEmpleado.Text);
+                int codigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
                 string nombreUsuario = txtNombreUsuario.Text;
                 string contrasena = txtPassword.Text;
                 string rol = cboxRol.Text;
@@ -126,7 +126,7 @@ namespace ProyectoFinal
             {
                 //Declaracion de todas las variables con todos los objetos del form
                 int codigoUsuario = int.Parse(txtCodigoUsuario.Text);
-                int codigoEmpleado = int.Parse(lblCodigoEmpleado.Text);
+                int codigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
                 string nombreUsuario = txtNombreUsuario.Text;
                 string contrasena = txtPassword.Text;
                 string rol = cboxRol.Text;
@@ -162,7 +162,7 @@ namespace ProyectoFinal
             else
             {
                 txtCodigoUsuario.Text = dgvUsuarios.SelectedCells[0].Value.ToString();
-                lblCodigoEmpleado.Text = dgvUsuarios.SelectedCells[1].Value.ToString();
+                txtCodigoEmpleado.Text = dgvUsuarios.SelectedCells[1].Value.ToString();
                 txtNombreUsuario.Text = dgvUsuarios.SelectedCells[2].Value.ToString();
                 txtPassword.Text = dgvUsuarios.SelectedCells[3].Value.ToString();
                 cboxRol.Text = dgvUsuarios.SelectedCells[4].Value.ToString();
