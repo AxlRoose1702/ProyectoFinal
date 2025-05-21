@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using ProyectoFinal.Datos;
+using ProyectoFinal.Logica;
 
 namespace ProyectoFinal
 {
     public partial class FrmEmpleados : Form
     {
-        CLProcesos proces = new CLProcesos();
+        //aqui se declaran los objetos de las clases
+        // CD Y CL
+        CLEmpleados cl_empleados = new CLEmpleados();
+        CDEmpleados cd_empleados = new CDEmpleados();
+
         public FrmEmpleados()
         {
             InitializeComponent();
@@ -17,57 +23,63 @@ namespace ProyectoFinal
             FrmMenuNavegacion nav = new FrmMenuNavegacion();
             nav.Show();
         }
+         
+        //metodo para consultar empleados, este se llama siempre al abrir la ventana
+        private void MtdConsultarEmpleados()
+        {
+            //se crea la tabla temporal  y se consulta la tabla empleados
+            // se hace llamado a través del CD y al metodo Consultar 
+            DataTable Dt = cd_empleados.MtdConsultarEmpleados();
+            dgvEmpleados.DataSource = Dt;
+        }
 
+        //Este es el load del form principal
         private void Empleados_Load(object sender, EventArgs e)
         {
-
-            string conn = "Data Source=LAPTOP-JC6HE824;Initial Catalog=ProyectoFinal;Integrated Security=True;";
-            CDConnectionBD dbHelper = new CDConnectionBD(conn);
-
-            //se obtiene el datatable con datos de la consulta
-            DataTable data = dbHelper.GetData("Select * from tbl_empleados");
-
-            //Asignar datos de la db en el datagridview
-            dgvEmpleados.DataSource = data;
+            //Este metodo lo tengo que crear antes, llamo al metodo consultar
+            //desde la clase CD
+            MtdConsultarEmpleados();
+            mtdLimpiarCampos();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try
+            //agregarle icons a este boton AGREGAR
+            if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtUsuarioSistema.Text))
             {
-                //Declaracion de todas las variables con todos los objetos del form
-                double metodoSalario;
-
-                string cargo = cboxCargo.Text;
-                string nombre = txtNombre.Text;
-                string estado = cboxEstado.Text;
-                DateTime fechaS = dateFechaSistema.Value;
-                DateTime fechaC = dateFechaContratacion.Value;
-                int codigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
-                string usuarioSistema = txtUsuarioSistema.Text;
-
-                if (string.IsNullOrEmpty(cargo) || string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(codigoEmpleado.ToString()) || string.IsNullOrEmpty(usuarioSistema))
-                {
-                    MessageBox.Show("Hay datos vacios en el formulario");
-                }
-                else if (estado != "Activo" && estado != "Inactivo" && estado != "Suspendido" && estado != "Despedido")
-                {
-                    MessageBox.Show("Hay datos sin seleccionar en el formulario");
-                }
-                else 
-                {
-                    //Aqui se hace la logica para la insercion de datos a la BD
-                    metodoSalario = proces.SalarioEmpleado(cargo);
-
-                }
-
+                MessageBox.Show("Favor completar nombre y Usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
+            else if (string.IsNullOrEmpty(cboxCargo.Text) || cboxCargo.Text=="Seleccionar" 
+                 || string.IsNullOrEmpty(cboxEstado.Text) || cboxEstado.Text=="Seleccionar")
             {
-                MessageBox.Show(ex.Message, "Advertencia!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Favor seleccionar una opción de cargo y estado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else
+            {
+                string Nombre = txtNombre.Text;
+                string Cargo = cboxCargo.Text;
+                double Salario = cl_empleados.SalarioEmpleado(Cargo);
+                DateTime FechaContratacion = dateFechaContratacion.Value;
+                string Estado = cboxEstado.Text;
+                string UsuarioSistema = txtUsuarioSistema.Text;
+                DateTime FechaSistema = dateFechaSistema.Value;
+                //se declaran las variables de auditoria
+
+                try
+                {
+                    //se llama al metodo de agregar empleado en la clase CD
+                    cd_empleados.MtdAgregarEmpleados(Nombre, Cargo, Salario, FechaContratacion, Estado, UsuarioSistema, FechaSistema);
+                    MessageBox.Show("Datos agregados correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MtdConsultarEmpleados();
+                    mtdLimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            
         }
-
         private void cboxCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -75,7 +87,7 @@ namespace ProyectoFinal
                 string cargo;
                 double salario;
                 cargo = cboxCargo.Text;
-                salario = proces.SalarioEmpleado(cargo);
+                salario = cl_empleados.SalarioEmpleado(cargo);
                 
                 if (string.IsNullOrEmpty(cargo))
                 {
@@ -92,6 +104,110 @@ namespace ProyectoFinal
                 MessageBox.Show(ex.Message, "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
+        }
+
+        private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var FilaSeleccionada = dgvEmpleados.SelectedRows[0];
+
+            if (FilaSeleccionada.Index == dgvEmpleados.RowCount - 1)
+            {
+                MessageBox.Show("Seleccione una fila con datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                txtCodigoEmpleado.Text = dgvEmpleados.SelectedCells[0].Value.ToString();
+                txtNombre.Text = dgvEmpleados.SelectedCells[1].Value.ToString();
+                cboxCargo.Text = dgvEmpleados.SelectedCells[2].Value.ToString();
+                lblSalario.Text = dgvEmpleados.SelectedCells[3].Value.ToString();
+                dateFechaContratacion.Text = dgvEmpleados.SelectedCells[4].Value.ToString();
+                cboxEstado.Text = dgvEmpleados.SelectedCells[5].Value.ToString();
+                txtUsuarioSistema.Text = dgvEmpleados.SelectedCells[6].Value.ToString();
+                dateFechaSistema.Text = dgvEmpleados.SelectedCells[7].Value.ToString();
+
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            //agregarle icons a este boton AGREGAR
+            if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtUsuarioSistema.Text))
+            {
+                MessageBox.Show("Favor completar nombre y Usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrEmpty(cboxCargo.Text) || cboxCargo.Text == "Seleccionar"
+                 || string.IsNullOrEmpty(cboxEstado.Text) || cboxEstado.Text == "Seleccionar")
+            {
+                MessageBox.Show("Favor seleccionar una opción de cargo y estado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                int CodigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
+                string Nombre = txtNombre.Text;
+                string Cargo = cboxCargo.Text;
+                double Salario = cl_empleados.SalarioEmpleado(Cargo);
+                DateTime FechaContratacion = dateFechaContratacion.Value;
+                string Estado = cboxEstado.Text;
+                string UsuarioSistema = txtUsuarioSistema.Text;
+                DateTime FechaSistema = dateFechaSistema.Value;
+                //se declaran las variables de auditoria
+                
+                try
+                {
+                    //se llama al metodo de ACTUALIZAR empleado en la clase CD
+                    cd_empleados.MtdActualizarEmpleados(CodigoEmpleado, Nombre, Cargo, Salario, FechaContratacion, Estado, UsuarioSistema, FechaSistema);
+                    MessageBox.Show("Datos actualizados correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MtdConsultarEmpleados();
+                    mtdLimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        
+        }
+        public void mtdLimpiarCampos()
+        {//metodo para limpiar los campos
+            txtNombre.Clear();
+            txtUsuarioSistema.Clear();
+            cboxCargo.Text = "Seleccionar";
+            cboxEstado.Text = "Seleccionar";
+            lblSalario.Text = "0.00";
+            txtCodigoEmpleado.Clear();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            //Cambiar a icono de cancelar
+            mtdLimpiarCampos();
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            //Cambiar a icono de eliminar
+            if (string.IsNullOrEmpty(txtCodigoEmpleado.Text))
+            {
+                MessageBox.Show("Favor seleccionar fila a eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int CodigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
+
+                try
+                {
+                    cd_empleados.MtdEliminarEmpleados(CodigoEmpleado);
+                    MessageBox.Show("Empleado eliminado correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MtdConsultarEmpleados();
+                    mtdLimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

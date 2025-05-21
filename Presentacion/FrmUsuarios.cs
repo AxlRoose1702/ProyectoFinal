@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using ProyectoFinal.Datos;
+using ProyectoFinal.Logica;
 
 namespace ProyectoFinal
 {
     public partial class FrmUsuarios : Form
     {
         CLProcesos proces = new CLProcesos();
+        //CLUsuarios cl_usuarios = new CLUsuarios();
+        //CDUsuarios cd_usuarios = new CDUsuarios();
         public FrmUsuarios()
         {
             InitializeComponent();
@@ -40,14 +44,8 @@ namespace ProyectoFinal
 
         private void Usuarios_Load(object sender, EventArgs e)
         {
-            string conn = "Data Source=LAPTOP-JC6HE824;Initial Catalog=ProyectoFinal;Integrated Security=True;";
-            CDConnectionBD dbHelper = new CDConnectionBD(conn);
+           
 
-            //se obtiene el datatable con datos de la consulta
-            DataTable data = dbHelper.GetData("Select * from tbl_usuarios");
-
-            //Asignar datos de la db en el datagridview
-            dgvEmpleados.DataSource = data;
         }
     }
 }
