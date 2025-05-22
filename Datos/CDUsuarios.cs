@@ -39,9 +39,9 @@ namespace ProyectoFinal.Datos
             cd_conexion.MtdCerrarConexion();
         }
 
-        public void MtdActualizarUsuarios(int CodigoEmpleado, string NombreUsuario, string Contrasenia, string Rol, string Estado, string UsuarioSistema, DateTime FechaSistema)
+        public void MtdActualizarUsuarios(int CodigoUsuario, int CodigoEmpleado, string NombreUsuario, string Contrasenia, string Rol, string Estado, string UsuarioSistema, DateTime FechaSistema)
         {
-            string QueryActualizarUsuarios = "Update tbl_Usuarios set CodigoEmpleado=@CodigoEmpleado, NombreUsuario=@NombreUsuario, Contrasenia=@Contrasenia, Rol=@Rol, Estado=@Estado, UsuarioSistema=@UsuarioSistema, FechaSistema=@FechaSistema where CodigoEmpleado=@CodigoEmpleado";
+            string QueryActualizarUsuarios = "Update tbl_Usuarios set CodigoEmpleado=@CodigoEmpleado, NombreUsuario=@NombreUsuario, Contrasenia=@Contrasenia, Rol=@Rol, Estado=@Estado, UsuarioSistema=@UsuarioSistema, FechaSistema=@FechaSistema where CodigoUsuario=@CodigoUsuario";
             SqlCommand cmd = new SqlCommand(QueryActualizarUsuarios, cd_conexion.MtdAbrirConexion());
             cmd.Parameters.AddWithValue("@CodigoEmpleado", CodigoEmpleado);
             cmd.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
@@ -118,9 +118,6 @@ namespace ProyectoFinal.Datos
             cd_conexion.MtdCerrarConexion();
             return Empleado;
         }
-
-
-
 
     }
 }

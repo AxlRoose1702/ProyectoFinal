@@ -174,7 +174,7 @@ namespace ProyectoFinal
                         return;
                     }
                     //se llama al metodo de ACTUALIZAR empleado en la clase CD
-                    cd_usuarios.MtdActualizarUsuarios(codigoEmpleado, nombreUsuario, contrasena, rol, estado, usuarioSistema, fechaS);
+                    cd_usuarios.MtdActualizarUsuarios(codigoUsuario, codigoEmpleado, nombreUsuario, contrasena, rol, estado, usuarioSistema, fechaS);
                     MessageBox.Show("Datos actualizados correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MtdConsultarUsuarios(); //esto recarga la dgv para ver los cambios
                     mtdLimpiarCampos(); //limpia los datos que hemos actualizado
