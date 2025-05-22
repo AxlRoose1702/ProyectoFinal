@@ -63,6 +63,64 @@ namespace ProyectoFinal.Datos
             cd_conexion.MtdCerrarConexion();
         }
 
+        public List<dynamic> MtdListaEmpleados()
+        {
+            List<dynamic> ListaEmpleados = new List<dynamic>();
+            string QueryListaEmpleados = "Select CodigoEmpleado, Nombre from tbl_Empleados";
+            SqlCommand cmd = new SqlCommand(QueryListaEmpleados, cd_conexion.MtdAbrirConexion());
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ListaEmpleados.Add(new
+                {
+                    Value = reader["CodigoEmpleado"],
+                    Text = $"{reader["CodigoEmpleado"]} - {reader["Nombre"]}"
+                });
+            }
+            cd_conexion.MtdCerrarConexion();
+            return ListaEmpleados;
+        }
+
+        public int MtdVerificarUsuario(string NombreUsuario)
+        {
+            int Usuario = 0;
+            string QueryVerificarUsuario = "Select * from tbl_Usuarios where NombreUsuario=@NombreUsuario";
+            SqlCommand cmd = new SqlCommand(QueryVerificarUsuario, cd_conexion.MtdAbrirConexion());
+            cmd.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                Usuario = 1702;
+            }
+            else
+            {
+                Usuario = 0;
+            }
+            cd_conexion.MtdCerrarConexion();
+            return Usuario; 
+        }
+        public int MtdVerificarEmpleado(int CodigoEmpleado)
+        {
+            int Empleado = 0;
+            string QueryVerificarEmpleado = "Select * from tbl_Usuarios where CodigoEmpleado=@CodigoEmpleado";
+            SqlCommand cmd = new SqlCommand(QueryVerificarEmpleado, cd_conexion.MtdAbrirConexion());
+            cmd.Parameters.AddWithValue("@CodigoEmpleado", CodigoEmpleado);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                Empleado = 1702;
+            }
+            else
+            {
+                Empleado = 0;
+            }
+            cd_conexion.MtdCerrarConexion();
+            return Empleado;
+        }
+
+
+
 
     }
 }

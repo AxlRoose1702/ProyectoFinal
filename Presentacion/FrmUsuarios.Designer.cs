@@ -51,14 +51,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCodigoUsuario = new System.Windows.Forms.TextBox();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.txtCodigoEmpleado = new System.Windows.Forms.TextBox();
+            this.cboxCodigoEmpleado = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtCodigoEmpleado);
+            this.groupBox1.Controls.Add(this.cboxCodigoEmpleado);
             this.groupBox1.Controls.Add(this.btnInicio);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.btnEditar);
@@ -364,14 +364,15 @@
             this.dgvUsuarios.TabIndex = 17;
             this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
             // 
-            // txtCodigoEmpleado
+            // cboxCodigoEmpleado
             // 
-            this.txtCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoEmpleado.Location = new System.Drawing.Point(208, 128);
-            this.txtCodigoEmpleado.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
-            this.txtCodigoEmpleado.Size = new System.Drawing.Size(132, 30);
-            this.txtCodigoEmpleado.TabIndex = 77;
+            this.cboxCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxCodigoEmpleado.FormattingEnabled = true;
+            this.cboxCodigoEmpleado.Location = new System.Drawing.Point(208, 129);
+            this.cboxCodigoEmpleado.Margin = new System.Windows.Forms.Padding(4);
+            this.cboxCodigoEmpleado.Name = "cboxCodigoEmpleado";
+            this.cboxCodigoEmpleado.Size = new System.Drawing.Size(132, 32);
+            this.cboxCodigoEmpleado.TabIndex = 77;
             // 
             // FrmUsuarios
             // 
@@ -415,6 +416,6 @@
         private FontAwesome.Sharp.IconButton btnEditar;
         private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnAgregar;
-        private System.Windows.Forms.TextBox txtCodigoEmpleado;
+        private System.Windows.Forms.ComboBox cboxCodigoEmpleado;
     }
 }

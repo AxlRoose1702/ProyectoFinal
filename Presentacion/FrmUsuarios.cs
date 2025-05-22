@@ -20,6 +20,20 @@ namespace ProyectoFinal
             DataTable Dt = cd_usuarios.MtdConsultarUsuarios();
             dgvUsuarios.DataSource = Dt;
         }
+        //Este metodo llama a todos los empleados que existen
+        //en la tabla empleados y los agrega al combobox
+        private void MtdMostrarListaEmpleados()
+        {
+            var ListaEmpleados = cd_usuarios.MtdListaEmpleados();
+
+            foreach (var Empleados in ListaEmpleados)
+            {
+                cboxCodigoEmpleado.Items.Add(Empleados);
+            }
+
+            cboxCodigoEmpleado.DisplayMember = "Text";
+            cboxCodigoEmpleado.ValueMember = "Value";
+        }
 
         public void mtdLimpiarCampos()
         {//metodo para limpiar los campos
@@ -29,7 +43,8 @@ namespace ProyectoFinal
             txtUsuarioSistema.Clear();
             cboxEstado.Text = "Seleccionar";
             cboxRol.Text = "Seleccionar";
-            txtCodigoEmpleado.Text = "";
+            cboxCodigoEmpleado.Text = "Seleccionar";
+            //LOS CBOX DEBEN IR CON "Seleccionar"
         }
 
         /*
@@ -66,6 +81,7 @@ namespace ProyectoFinal
             //desde la clase CD
             MtdConsultarUsuarios();
             mtdLimpiarCampos();
+            MtdMostrarListaEmpleados();
 
         }
 
@@ -77,15 +93,16 @@ namespace ProyectoFinal
                 MessageBox.Show("Favor completar NombreUsuario, UsuarioSistema y Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (string.IsNullOrEmpty(cboxRol.Text) || cboxRol.Text == "Seleccionar"
-                 || string.IsNullOrEmpty(cboxEstado.Text) || cboxEstado.Text == "Seleccionar")
+                 || string.IsNullOrEmpty(cboxEstado.Text) || cboxEstado.Text == "Seleccionar"
+                 || string.IsNullOrEmpty(cboxCodigoEmpleado.Text) || cboxCodigoEmpleado.Text == "Seleccionar")
             {
-                MessageBox.Show("Favor seleccionar una opción de Rol y Estado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Favor seleccionar una opción de Rol, Estado y CodigoEmpleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 //Declaracion de todas las variables con todos los objetos del form
-                int codigoUsuario = int.Parse(txtCodigoUsuario.Text);
-                int codigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
+                // int codigoUsuario = int.Parse(txtCodigoUsuario.Text);
+                int codigoEmpleado = (int)((dynamic)cboxCodigoEmpleado.SelectedItem).Value;
                 string nombreUsuario = txtNombreUsuario.Text;
                 string contrasena = txtPassword.Text;
                 string rol = cboxRol.Text;
@@ -95,6 +112,15 @@ namespace ProyectoFinal
 
                 try
                 {
+                    if (cd_usuarios.MtdVerificarUsuario(nombreUsuario) == 1702)
+                    {
+                        MessageBox.Show("Por Favor Ingresar diferente NombreUsuario", "NO PERMITIDO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }else if (cd_usuarios.MtdVerificarEmpleado(codigoEmpleado) == 1702)
+                    {
+                        MessageBox.Show("Solo puede haber 1 Usuario por cada Empleado", "NO PERMITIDO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     //se llama al metodo de agregar empleado en la clase CD
                     cd_usuarios.MtdAgregarUsuarios(codigoEmpleado, nombreUsuario, contrasena, rol, estado, usuarioSistema, fechaS);
                     MessageBox.Show("Datos agregados correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -126,7 +152,7 @@ namespace ProyectoFinal
             {
                 //Declaracion de todas las variables con todos los objetos del form
                 int codigoUsuario = int.Parse(txtCodigoUsuario.Text);
-                int codigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
+                int codigoEmpleado = (int)((dynamic)cboxCodigoEmpleado.SelectedItem).Value;
                 string nombreUsuario = txtNombreUsuario.Text;
                 string contrasena = txtPassword.Text;
                 string rol = cboxRol.Text;
@@ -135,9 +161,18 @@ namespace ProyectoFinal
                 DateTime fechaS = dateFechaSistema.Value;
                 //ESTO ES LO MISMO QUE EN EL BOTON AGREGAR
 
-
                 try
                 {
+                    if (cd_usuarios.MtdVerificarUsuario(nombreUsuario) == 1702)
+                    {
+                        MessageBox.Show("Por Favor Ingresar diferente NombreUsuario", "NO PERMITIDO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (cd_usuarios.MtdVerificarEmpleado(codigoEmpleado) == 1702)
+                    {
+                        MessageBox.Show("Solo puede haber 1 Usuario por cada Empleado", "NO PERMITIDO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     //se llama al metodo de ACTUALIZAR empleado en la clase CD
                     cd_usuarios.MtdActualizarUsuarios(codigoEmpleado, nombreUsuario, contrasena, rol, estado, usuarioSistema, fechaS);
                     MessageBox.Show("Datos actualizados correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -161,8 +196,18 @@ namespace ProyectoFinal
             }
             else
             {
+
                 txtCodigoUsuario.Text = dgvUsuarios.SelectedCells[0].Value.ToString();
-                txtCodigoEmpleado.Text = dgvUsuarios.SelectedCells[1].Value.ToString();
+                //cboxCodigoEmpleado.Text = dgvUsuarios.SelectedCells[1].Value.ToString();
+                int codigoEmpleado = (int)dgvUsuarios.SelectedCells[1].Value;
+                foreach (var codigoEmp in cboxCodigoEmpleado.Items)
+                {
+                    if (((dynamic)codigoEmp).Value == codigoEmpleado)
+                    {
+                        cboxCodigoEmpleado.SelectedItem = codigoEmp;
+                        //break;
+                    }
+                }
                 txtNombreUsuario.Text = dgvUsuarios.SelectedCells[2].Value.ToString();
                 txtPassword.Text = dgvUsuarios.SelectedCells[3].Value.ToString();
                 cboxRol.Text = dgvUsuarios.SelectedCells[4].Value.ToString();
