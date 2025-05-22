@@ -8,7 +8,10 @@ namespace ProyectoFinal.Logica
 {
     internal class CLUsuarios
     {
-
+        public DateTime MtdFechaHoy()
+        {
+            return DateTime.Now;
+        }
 
     }
 }

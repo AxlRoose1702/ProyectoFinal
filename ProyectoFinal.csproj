@@ -55,7 +55,9 @@
   <ItemGroup>
     <Compile Include="Datos\CDConexion.cs" />
     <Compile Include="Datos\CDEmpleados.cs" />
+    <Compile Include="Datos\CDPagoPlanillas.cs" />
     <Compile Include="Datos\CDUsuarios.cs" />
+    <Compile Include="Logica\CLPagoPlanillas.cs" />
     <Compile Include="Logica\CLUsuarios.cs" />
     <Compile Include="Logica\CLEmpleados.cs" />
     <Compile Include="Presentacion\FrmAsignaciones.cs">
