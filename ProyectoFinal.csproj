@@ -88,17 +88,17 @@
     <Compile Include="Presentacion\FrmHuespedes.Designer.cs">
       <DependentUpon>FrmHuespedes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentacion\FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presentacion\FrmMenuNavegacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\FrmMenuNavegacion.Designer.cs">
       <DependentUpon>FrmMenuNavegacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmMenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmMenuPrincipal.Designer.cs">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\FrmPagoPlanillas.cs">
       <SubType>Form</SubType>
@@ -133,6 +133,16 @@
     <Compile Include="Presentacion\FrmUsuarios.Designer.cs">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Seguridad\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UserCache.cs" />
+    <Compile Include="Seguridad\UserConnectionToSql.cs" />
+    <Compile Include="Seguridad\UserDao.cs" />
+    <Compile Include="Seguridad\UserModel.cs" />
     <EmbeddedResource Include="Presentacion\FrmAsignaciones.resx">
       <DependentUpon>FrmAsignaciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,11 +158,11 @@
     <EmbeddedResource Include="Presentacion\FrmHuespedes.resx">
       <DependentUpon>FrmHuespedes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmMenuNavegacion.resx">
       <DependentUpon>FrmMenuNavegacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmMenuPrincipal.resx">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmPagoPlanillas.resx">
       <DependentUpon>FrmPagoPlanillas.cs</DependentUpon>
@@ -178,6 +188,9 @@
     <EmbeddedResource Include="Presentacion\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -192,8 +205,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Seguridad\" />
+    <Content Include="Seguridad\resources\Close_Icon.png" />
+    <Content Include="Seguridad\resources\Minimize_Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
