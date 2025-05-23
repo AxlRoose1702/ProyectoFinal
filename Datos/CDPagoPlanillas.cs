@@ -43,6 +43,7 @@ namespace ProyectoFinal.Datos
         {
             string QueryActualizarUsuarios = "Update tbl_PagoPlanillas set CodigoEmpleado=@CodigoEmpleado, FechaPago=@FechaPago, Salario=@Salario, Bono=@Bono, HorasExtra=@HorasExtra, MontoTotal=@MontoTotal, Estado=@Estado, UsuarioSistema=@UsuarioSistema, FechaSistema=@FechaSistema  where CodigoPagoPlanilla=@CodigoPagoPlanilla";
             SqlCommand cmd = new SqlCommand(QueryActualizarUsuarios, cd_conexion.MtdAbrirConexion());
+            cmd.Parameters.AddWithValue("@CodigoPagoPlanilla", CodigoPagoPlanilla);
             cmd.Parameters.AddWithValue("@CodigoEmpleado", CodigoEmpleado);
             cmd.Parameters.AddWithValue("@FechaPago", FechaPago);
             cmd.Parameters.AddWithValue("@Salario", Salario);

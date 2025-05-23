@@ -133,6 +133,7 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnEditar
             // 
@@ -150,6 +151,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
@@ -167,6 +169,7 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAgregar
             // 
@@ -386,7 +389,7 @@
             // txtCodigoPP
             // 
             this.txtCodigoPP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoPP.Location = new System.Drawing.Point(352, 30);
+            this.txtCodigoPP.Location = new System.Drawing.Point(408, 30);
             this.txtCodigoPP.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoPP.Name = "txtCodigoPP";
             this.txtCodigoPP.ReadOnly = true;
@@ -404,6 +407,8 @@
             this.dgvPagoPlanillas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPagoPlanillas.Size = new System.Drawing.Size(997, 356);
             this.dgvPagoPlanillas.TabIndex = 17;
+            this.dgvPagoPlanillas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagoPlanillas_CellClick);
+            this.dgvPagoPlanillas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagoPlanillas_CellContentClick);
             // 
             // FrmPagoPlanillas
             // 
@@ -413,6 +418,7 @@
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPagoPlanillas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PagoPlanillas";
             this.Load += new System.EventHandler(this.FrmPagoPlanillas_Load);
             this.groupBox1.ResumeLayout(false);
