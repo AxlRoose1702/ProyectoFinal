@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using CapaPresentacion.Presentacion;
 using CapaPresentacion.Seguridad;
 
 namespace ProyectoFinal
@@ -14,7 +15,7 @@ namespace ProyectoFinal
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmEmpleados());
+            Application.Run(new FrmLogin());
         }
     }
 }
