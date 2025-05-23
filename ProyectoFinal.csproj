@@ -56,11 +56,14 @@
     <Compile Include="Datos\CDConexion.cs" />
     <Compile Include="Datos\CDEmpleados.cs" />
     <Compile Include="Datos\CDHabitaciones.cs" />
+    <Compile Include="Datos\CDHuespedes.cs" />
+    <Compile Include="Datos\CDServicios.cs" />
     <Compile Include="Datos\CDUsuarios.cs" />
     <Compile Include="Logica\CLHabitaciones.cs" />
     <Compile Include="Datos\CDPagoPlanillas.cs" />
     <Compile Include="Datos\CDUsuarios.cs" />
     <Compile Include="Logica\CLPagoPlanillas.cs" />
+    <Compile Include="Logica\CLServicios.cs" />
     <Compile Include="Logica\CLUsuarios.cs" />
     <Compile Include="Logica\CLEmpleados.cs" />
     <Compile Include="Presentacion\FrmAsignaciones.cs">

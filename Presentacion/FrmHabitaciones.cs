@@ -29,6 +29,7 @@ namespace ProyectoFinal.Presentacion
         }
         private void MtdLimpiarCampos()
         {
+            lblCodigoHabitacion.Text = "";
             txtNumero.Text = "";
             cboxUbicacion.Text = "";
             txtPrecio.Text = "";

@@ -56,7 +56,7 @@ namespace ProyectoFinal.Datos
         {
             string QueryEliminarHabitacion = "Delete tbl_Habitaciones where CodigoHabitacion=@CodigoHabitacion";
             SqlCommand cmd = new SqlCommand(QueryEliminarHabitacion, cd_conexion.MtdAbrirConexion());
-            cmd.Parameters.AddWithValue("CodigoHabitacion", CodigoHabitacion);
+            cmd.Parameters.AddWithValue("@CodigoHabitacion", CodigoHabitacion);
             cmd.ExecuteNonQuery ();
             cd_conexion.MtdCerrarConexion();
         }
