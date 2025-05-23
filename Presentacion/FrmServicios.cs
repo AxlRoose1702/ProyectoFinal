@@ -29,6 +29,7 @@ namespace ProyectoFinal.Presentacion
         }
         private void MtdLimpiarCampos()
         {
+            lblCodigoServicio.Text = "";
             txtNombre.Text = "";
             cboxTipoServicio.Text = "";
             txtPrecio.Text = "";
