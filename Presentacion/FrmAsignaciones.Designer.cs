@@ -28,21 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnInicio = new FontAwesome.Sharp.IconButton();
+            this.cboxCodigoHabitacion = new System.Windows.Forms.ComboBox();
+            this.cboxCodigoEmpleado = new System.Windows.Forms.ComboBox();
             this.btnCancel = new FontAwesome.Sharp.IconButton();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.btnAgregar = new FontAwesome.Sharp.IconButton();
-            this.cboxTipoHabitacion = new System.Windows.Forms.ComboBox();
+            this.cboxTipoAsignacion = new System.Windows.Forms.ComboBox();
             this.lblCodigoAsignacion = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.lblCodigoEmpleado = new System.Windows.Forms.Label();
-            this.lblCodigoHabitacion = new System.Windows.Forms.Label();
             this.cboxEstado = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dateFechaSistema = new System.Windows.Forms.DateTimePicker();
-            this.dateFechaAsignacion = new System.Windows.Forms.DateTimePicker();
+            this.dateSistema = new System.Windows.Forms.DateTimePicker();
+            this.dateAsignacion = new System.Windows.Forms.DateTimePicker();
             this.txtUsuarioSistema = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,27 +53,26 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.dgvAsignaciones = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAsignaciones)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnInicio);
+            this.groupBox1.Controls.Add(this.cboxCodigoHabitacion);
+            this.groupBox1.Controls.Add(this.cboxCodigoEmpleado);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.btnEditar);
             this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.btnAgregar);
-            this.groupBox1.Controls.Add(this.cboxTipoHabitacion);
+            this.groupBox1.Controls.Add(this.cboxTipoAsignacion);
             this.groupBox1.Controls.Add(this.lblCodigoAsignacion);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.lblCodigoEmpleado);
-            this.groupBox1.Controls.Add(this.lblCodigoHabitacion);
             this.groupBox1.Controls.Add(this.cboxEstado);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.dateFechaSistema);
-            this.groupBox1.Controls.Add(this.dateFechaAsignacion);
+            this.groupBox1.Controls.Add(this.dateSistema);
+            this.groupBox1.Controls.Add(this.dateAsignacion);
             this.groupBox1.Controls.Add(this.txtUsuarioSistema);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
@@ -80,28 +81,30 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.dgvEmpleados);
+            this.groupBox1.Controls.Add(this.dgvAsignaciones);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(994, 572);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
-            // btnInicio
+            // cboxCodigoHabitacion
             // 
-            this.btnInicio.AutoSize = true;
-            this.btnInicio.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnInicio.IconChar = FontAwesome.Sharp.IconChar.HomeUser;
-            this.btnInicio.IconColor = System.Drawing.Color.Black;
-            this.btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInicio.Location = new System.Drawing.Point(877, 145);
-            this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(103, 54);
-            this.btnInicio.TabIndex = 71;
-            this.btnInicio.Text = "Inicio";
-            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInicio.UseVisualStyleBackColor = true;
+            this.cboxCodigoHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxCodigoHabitacion.FormattingEnabled = true;
+            this.cboxCodigoHabitacion.Location = new System.Drawing.Point(266, 87);
+            this.cboxCodigoHabitacion.Name = "cboxCodigoHabitacion";
+            this.cboxCodigoHabitacion.Size = new System.Drawing.Size(100, 26);
+            this.cboxCodigoHabitacion.TabIndex = 72;
+            // 
+            // cboxCodigoEmpleado
+            // 
+            this.cboxCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxCodigoEmpleado.FormattingEnabled = true;
+            this.cboxCodigoEmpleado.Location = new System.Drawing.Point(266, 53);
+            this.cboxCodigoEmpleado.Name = "cboxCodigoEmpleado";
+            this.cboxCodigoEmpleado.Size = new System.Drawing.Size(100, 26);
+            this.cboxCodigoEmpleado.TabIndex = 71;
             // 
             // btnCancel
             // 
@@ -118,6 +121,7 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnEditar
             // 
@@ -134,6 +138,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
@@ -150,6 +155,7 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAgregar
             // 
@@ -166,21 +172,22 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // cboxTipoHabitacion
+            // cboxTipoAsignacion
             // 
-            this.cboxTipoHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxTipoHabitacion.FormattingEnabled = true;
-            this.cboxTipoHabitacion.Items.AddRange(new object[] {
+            this.cboxTipoAsignacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxTipoAsignacion.FormattingEnabled = true;
+            this.cboxTipoAsignacion.Items.AddRange(new object[] {
             "Recepcion",
             "Limpieza",
             "Alimentos",
             "Administrativo",
             "Mantenimiento"});
-            this.cboxTipoHabitacion.Location = new System.Drawing.Point(264, 128);
-            this.cboxTipoHabitacion.Name = "cboxTipoHabitacion";
-            this.cboxTipoHabitacion.Size = new System.Drawing.Size(100, 26);
-            this.cboxTipoHabitacion.TabIndex = 50;
+            this.cboxTipoAsignacion.Location = new System.Drawing.Point(264, 128);
+            this.cboxTipoAsignacion.Name = "cboxTipoAsignacion";
+            this.cboxTipoAsignacion.Size = new System.Drawing.Size(100, 26);
+            this.cboxTipoAsignacion.TabIndex = 50;
             // 
             // lblCodigoAsignacion
             // 
@@ -201,26 +208,6 @@
             this.label11.Size = new System.Drawing.Size(121, 20);
             this.label11.TabIndex = 43;
             this.label11.Text = "Tipo Asignacion";
-            // 
-            // lblCodigoEmpleado
-            // 
-            this.lblCodigoEmpleado.AutoSize = true;
-            this.lblCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoEmpleado.Location = new System.Drawing.Point(260, 59);
-            this.lblCodigoEmpleado.Name = "lblCodigoEmpleado";
-            this.lblCodigoEmpleado.Size = new System.Drawing.Size(130, 20);
-            this.lblCodigoEmpleado.TabIndex = 42;
-            this.lblCodigoEmpleado.Text = "codigo empleado";
-            // 
-            // lblCodigoHabitacion
-            // 
-            this.lblCodigoHabitacion.AutoSize = true;
-            this.lblCodigoHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoHabitacion.Location = new System.Drawing.Point(261, 93);
-            this.lblCodigoHabitacion.Name = "lblCodigoHabitacion";
-            this.lblCodigoHabitacion.Size = new System.Drawing.Size(150, 20);
-            this.lblCodigoHabitacion.TabIndex = 41;
-            this.lblCodigoHabitacion.Text = "codigo habitaciones";
             // 
             // cboxEstado
             // 
@@ -247,21 +234,21 @@
             this.label9.TabIndex = 34;
             this.label9.Text = "CRUD ASIGNACION";
             // 
-            // dateFechaSistema
+            // dateSistema
             // 
-            this.dateFechaSistema.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFechaSistema.Location = new System.Drawing.Point(628, 122);
-            this.dateFechaSistema.Name = "dateFechaSistema";
-            this.dateFechaSistema.Size = new System.Drawing.Size(100, 20);
-            this.dateFechaSistema.TabIndex = 33;
+            this.dateSistema.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateSistema.Location = new System.Drawing.Point(628, 122);
+            this.dateSistema.Name = "dateSistema";
+            this.dateSistema.Size = new System.Drawing.Size(100, 20);
+            this.dateSistema.TabIndex = 33;
             // 
-            // dateFechaAsignacion
+            // dateAsignacion
             // 
-            this.dateFechaAsignacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFechaAsignacion.Location = new System.Drawing.Point(628, 93);
-            this.dateFechaAsignacion.Name = "dateFechaAsignacion";
-            this.dateFechaAsignacion.Size = new System.Drawing.Size(100, 20);
-            this.dateFechaAsignacion.TabIndex = 32;
+            this.dateAsignacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateAsignacion.Location = new System.Drawing.Point(628, 93);
+            this.dateAsignacion.Name = "dateAsignacion";
+            this.dateAsignacion.Size = new System.Drawing.Size(100, 20);
+            this.dateAsignacion.TabIndex = 32;
             // 
             // txtUsuarioSistema
             // 
@@ -341,15 +328,40 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Codigo Asignacion";
             // 
-            // dgvEmpleados
+            // dgvAsignaciones
             // 
-            this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Location = new System.Drawing.Point(108, 266);
-            this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmpleados.Size = new System.Drawing.Size(832, 289);
-            this.dgvEmpleados.TabIndex = 17;
+            this.dgvAsignaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAsignaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvAsignaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAsignaciones.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvAsignaciones.Location = new System.Drawing.Point(108, 266);
+            this.dgvAsignaciones.Name = "dgvAsignaciones";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAsignaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvAsignaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAsignaciones.Size = new System.Drawing.Size(832, 289);
+            this.dgvAsignaciones.TabIndex = 17;
+            this.dgvAsignaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAsignaciones_CellClick);
             // 
             // FrmAsignaciones
             // 
@@ -359,9 +371,10 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmAsignaciones";
             this.Text = "FrmAsignaciones";
+            this.Load += new System.EventHandler(this.FrmAsignaciones_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAsignaciones)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -371,12 +384,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblCodigoAsignacion;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lblCodigoEmpleado;
-        private System.Windows.Forms.Label lblCodigoHabitacion;
         private System.Windows.Forms.ComboBox cboxEstado;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dateFechaSistema;
-        private System.Windows.Forms.DateTimePicker dateFechaAsignacion;
+        private System.Windows.Forms.DateTimePicker dateSistema;
+        private System.Windows.Forms.DateTimePicker dateAsignacion;
         private System.Windows.Forms.TextBox txtUsuarioSistema;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -385,12 +396,13 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvEmpleados;
-        private System.Windows.Forms.ComboBox cboxTipoHabitacion;
-        private FontAwesome.Sharp.IconButton btnInicio;
+        private System.Windows.Forms.DataGridView dgvAsignaciones;
+        private System.Windows.Forms.ComboBox cboxTipoAsignacion;
         private FontAwesome.Sharp.IconButton btnCancel;
         private FontAwesome.Sharp.IconButton btnEditar;
         private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnAgregar;
+        private System.Windows.Forms.ComboBox cboxCodigoEmpleado;
+        private System.Windows.Forms.ComboBox cboxCodigoHabitacion;
     }
 }

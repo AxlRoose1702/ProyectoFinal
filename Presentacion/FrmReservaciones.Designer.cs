@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnInicio = new FontAwesome.Sharp.IconButton();
+            this.btnCancel = new FontAwesome.Sharp.IconButton();
+            this.btnEditar = new FontAwesome.Sharp.IconButton();
+            this.btnEliminar = new FontAwesome.Sharp.IconButton();
+            this.btnAgregar = new FontAwesome.Sharp.IconButton();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dateEntrada = new System.Windows.Forms.DateTimePicker();
@@ -49,11 +54,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.btnInicio = new FontAwesome.Sharp.IconButton();
-            this.btnCancel = new FontAwesome.Sharp.IconButton();
-            this.btnEditar = new FontAwesome.Sharp.IconButton();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
-            this.btnAgregar = new FontAwesome.Sharp.IconButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
@@ -90,6 +90,87 @@
             this.groupBox1.Size = new System.Drawing.Size(994, 572);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
+            // 
+            // btnInicio
+            // 
+            this.btnInicio.AutoSize = true;
+            this.btnInicio.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnInicio.IconChar = FontAwesome.Sharp.IconChar.HomeUser;
+            this.btnInicio.IconColor = System.Drawing.Color.Black;
+            this.btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInicio.Location = new System.Drawing.Point(867, 144);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.Size = new System.Drawing.Size(103, 54);
+            this.btnInicio.TabIndex = 76;
+            this.btnInicio.Text = "Inicio";
+            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInicio.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.AutoSize = true;
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.PersonCircleExclamation;
+            this.btnCancel.IconColor = System.Drawing.Color.Black;
+            this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(867, 84);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(103, 54);
+            this.btnCancel.TabIndex = 75;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.AutoSize = true;
+            this.btnEditar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.PersonCircleQuestion;
+            this.btnEditar.IconColor = System.Drawing.Color.Black;
+            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(767, 83);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(94, 54);
+            this.btnEditar.TabIndex = 74;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.AutoSize = true;
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.PersonCircleXmark;
+            this.btnEliminar.IconColor = System.Drawing.Color.Black;
+            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(867, 24);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(103, 54);
+            this.btnEliminar.TabIndex = 73;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.AutoSize = true;
+            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAgregar.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            this.btnAgregar.IconColor = System.Drawing.Color.Black;
+            this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(767, 23);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(94, 54);
+            this.btnAgregar.TabIndex = 72;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar.UseVisualStyleBackColor = true;
             // 
             // lblTotal
             // 
@@ -287,86 +368,6 @@
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleados.Size = new System.Drawing.Size(823, 289);
             this.dgvEmpleados.TabIndex = 17;
-            // 
-            // btnInicio
-            // 
-            this.btnInicio.AutoSize = true;
-            this.btnInicio.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnInicio.IconChar = FontAwesome.Sharp.IconChar.HomeUser;
-            this.btnInicio.IconColor = System.Drawing.Color.Black;
-            this.btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInicio.Location = new System.Drawing.Point(867, 144);
-            this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(103, 54);
-            this.btnInicio.TabIndex = 76;
-            this.btnInicio.Text = "Inicio";
-            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInicio.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.AutoSize = true;
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.PersonCircleExclamation;
-            this.btnCancel.IconColor = System.Drawing.Color.Black;
-            this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(867, 84);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(103, 54);
-            this.btnCancel.TabIndex = 75;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.AutoSize = true;
-            this.btnEditar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.PersonCircleQuestion;
-            this.btnEditar.IconColor = System.Drawing.Color.Black;
-            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(767, 83);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(94, 54);
-            this.btnEditar.TabIndex = 74;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.AutoSize = true;
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.PersonCircleXmark;
-            this.btnEliminar.IconColor = System.Drawing.Color.Black;
-            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(867, 24);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(103, 54);
-            this.btnEliminar.TabIndex = 73;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.AutoSize = true;
-            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAgregar.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
-            this.btnAgregar.IconColor = System.Drawing.Color.Black;
-            this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(767, 23);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(94, 54);
-            this.btnAgregar.TabIndex = 72;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar.UseVisualStyleBackColor = true;
             // 
             // FrmReservaciones
             // 
