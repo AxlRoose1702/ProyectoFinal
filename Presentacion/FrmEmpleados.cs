@@ -65,7 +65,40 @@ namespace ProyectoFinal
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {         
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtUsuarioSistema.Text))
+            {
+                MessageBox.Show("Favor completar nombre y Usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrEmpty(cboxCargo.Text) || cboxCargo.Text == "Seleccionar"
+                 || string.IsNullOrEmpty(cboxEstado.Text) || cboxEstado.Text == "Seleccionar")
+            {
+                MessageBox.Show("Favor seleccionar una opción de cargo y estado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string Nombre = txtNombre.Text;
+                string Cargo = cboxCargo.Text;
+                double Salario = cl_empleados.SalarioEmpleado(Cargo);
+                DateTime FechaContratacion = dateFechaContratacion.Value;
+                string Estado = cboxEstado.Text;
+                string UsuarioSistema = txtUsuarioSistema.Text;
+                DateTime FechaSistema = dateFechaSistema.Value;
+                //se declaran las variables de auditoria
+
+                try
+                {
+                    //se llama al metodo de agregar empleado en la clase CD
+                    cd_empleados.MtdAgregarEmpleados(Nombre, Cargo, Salario, FechaContratacion, Estado, UsuarioSistema, FechaSistema);
+                    MessageBox.Show("Datos agregados correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MtdConsultarEmpleados();
+                    mtdLimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
         private void cboxCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
