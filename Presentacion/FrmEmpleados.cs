@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using CapaPresentacion.Seguridad;
 using ProyectoFinal.Datos;
 using ProyectoFinal.Logica;
 
@@ -29,6 +30,7 @@ namespace ProyectoFinal
             cboxEstado.Text = "Seleccionar";
             lblSalario.Text = "0.00";
             txtCodigoEmpleado.Clear();
+            txtUsuarioSistema.Text = UserCache.NombreUsuario;
         }
 
         /*
