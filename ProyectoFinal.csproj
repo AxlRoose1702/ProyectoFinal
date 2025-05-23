@@ -53,10 +53,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\CDAsignaciones.cs" />
     <Compile Include="Datos\CDConexion.cs" />
     <Compile Include="Datos\CDEmpleados.cs" />
     <Compile Include="Datos\CDPagoPlanillas.cs" />
     <Compile Include="Datos\CDUsuarios.cs" />
+    <Compile Include="Logica\CLAsignaciones.cs" />
     <Compile Include="Logica\CLPagoPlanillas.cs" />
     <Compile Include="Logica\CLUsuarios.cs" />
     <Compile Include="Logica\CLEmpleados.cs" />
