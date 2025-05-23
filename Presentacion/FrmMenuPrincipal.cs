@@ -1,5 +1,6 @@
 ﻿using CapaPresentacion.Seguridad;
 using ProyectoFinal;
+using ProyectoFinal.Presentacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -161,6 +162,47 @@ namespace CapaPresentacion.Presentacion
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             LoadUserData();
+        }
+
+        private void btnAsignaciones_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmAsignaciones>();
+
+        }
+
+        private void btnConsumos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmConsumos>(); 
+        }
+
+        private void btnHabitaciones_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmHabitaciones>();
+        }
+
+        private void btnHuespedes_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmHuespedes>();
+        }
+
+        private void btnPagoPlanillas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmPagoPlanillas>();
+        }
+
+        private void btnPagos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmPagos>();
+        }
+
+        private void btnReservaciones_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmReservaciones>();
+        }
+
+        private void btnServicios_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmServicios>();
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
