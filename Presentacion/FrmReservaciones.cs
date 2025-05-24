@@ -1,4 +1,5 @@
-﻿using ProyectoFinal.Datos;
+﻿using CapaPresentacion.Seguridad;
+using ProyectoFinal.Datos;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -92,6 +93,7 @@ namespace ProyectoFinal.Presentacion
             MtdConsultarReservaciones();
             MtdMostrarListaHuespedes();
             MtdMostrarListaHabitacion();
+            MtdLimpiarDatos();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -138,7 +140,7 @@ namespace ProyectoFinal.Presentacion
             cboxCodigoHabitacion.Text = "Seleccionar";
             cboxCodigoHuesped.Text = "Seleccionar";
             lblTotal.Text = "";
-            txtUsuarioSistema.Clear();
+            txtUsuarioSistema.Text = UserCache.NombreUsuario;
 
         }
 
@@ -199,6 +201,11 @@ namespace ProyectoFinal.Presentacion
                 txtUsuarioSistema.Text = dgvReservaciones.SelectedCells[6].Value.ToString();
                 dateSistema.Text = dgvReservaciones.SelectedCells[7].Value.ToString();
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -13,9 +13,9 @@ namespace CapaPresentacion.Seguridad
         private readonly string connectionString;
         public UserConnectionToSql()
         {
-            //connectionString = "Server=CASITA\\SQLEXPRESS;Initial Catalog=db_hotel;Integrated Security=True;Encrypt=False";
+            connectionString = "Server=CASITA\\SQLEXPRESS;Initial Catalog=db_hotel;Integrated Security=True;Encrypt=False";
             //connectionString = "Server=PAUL\\SQLEXPRESS;Initial Catalog=db_hotel;Integrated Security=True;Encrypt=False";
-            connectionString = "Data Source=LAPTOP-JC6HE824;Initial Catalog=db_hotel;Integrated Security=True;Encrypt=False";
+            //connectionString = "Data Source=LAPTOP-JC6HE824;Initial Catalog=db_hotel;Integrated Security=True;Encrypt=False";
         }
         protected SqlConnection GetConnection()
         {

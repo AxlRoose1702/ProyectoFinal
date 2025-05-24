@@ -96,6 +96,7 @@
             this.cboxCodigoEmpleado.Name = "cboxCodigoEmpleado";
             this.cboxCodigoEmpleado.Size = new System.Drawing.Size(132, 32);
             this.cboxCodigoEmpleado.TabIndex = 77;
+            this.cboxCodigoEmpleado.SelectedIndexChanged += new System.EventHandler(this.cboxCodigoEmpleado_SelectedIndexChanged);
             // 
             // btnCancel
             // 
@@ -243,6 +244,7 @@
             this.txtUsuarioSistema.Location = new System.Drawing.Point(802, 92);
             this.txtUsuarioSistema.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuarioSistema.Name = "txtUsuarioSistema";
+            this.txtUsuarioSistema.ReadOnly = true;
             this.txtUsuarioSistema.Size = new System.Drawing.Size(132, 30);
             this.txtUsuarioSistema.TabIndex = 31;
             // 
