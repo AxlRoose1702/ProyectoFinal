@@ -62,6 +62,7 @@
     <Compile Include="Datos\CDReservaciones.cs" />
     <Compile Include="Datos\CDServicios.cs" />
     <Compile Include="Datos\CDUsuarios.cs" />
+    <Compile Include="Logica\CLAsignaciones.cs" />
     <Compile Include="Logica\CLConsumo.cs" />
     <Compile Include="Logica\CLHabitaciones.cs" />
     <Compile Include="Datos\CDPagoPlanillas.cs" />
