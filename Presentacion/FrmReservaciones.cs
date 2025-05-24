@@ -1,5 +1,7 @@
-﻿using CapaPresentacion.Seguridad;
+using CapaPresentacion.Seguridad;
 using ProyectoFinal.Datos;
+using ProyectoFinal.Datos;
+using ProyectoFinal.Logica;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -9,6 +11,7 @@ namespace ProyectoFinal.Presentacion
     public partial class FrmReservaciones : Form
     {
         CDReservaciones cd_reservaciones = new CDReservaciones();
+        CLReservaciones cl_reservaciones = new CLReservaciones();
 
         private void MtdConsultarReservaciones()
         {
@@ -203,9 +206,14 @@ namespace ProyectoFinal.Presentacion
             }
         }
 
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
+        private void cboxCodigoHabitacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedHabitacion = (dynamic)cboxCodigoHabitacion.SelectedItem;
+            int codigoHabitacion = (int)selectedHabitacion.Value;
+            lblTotal.Text = cl_reservaciones.MtdTotalReservaciones(codigoHabitacion).ToString();
         }
     }
 }

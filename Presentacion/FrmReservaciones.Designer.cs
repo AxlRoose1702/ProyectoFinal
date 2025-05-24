@@ -101,6 +101,7 @@
             this.cboxCodigoHabitacion.Name = "cboxCodigoHabitacion";
             this.cboxCodigoHabitacion.Size = new System.Drawing.Size(132, 32);
             this.cboxCodigoHabitacion.TabIndex = 78;
+            this.cboxCodigoHabitacion.SelectedIndexChanged += new System.EventHandler(this.cboxCodigoHabitacion_SelectedIndexChanged);
             // 
             // cboxCodigoHuesped
             // 

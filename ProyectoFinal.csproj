@@ -70,6 +70,7 @@
     <Compile Include="Datos\CDUsuarios.cs" />
     <Compile Include="Logica\CLPagoPlanillas.cs" />
     <Compile Include="Logica\CLPagos.cs" />
+    <Compile Include="Logica\CLReservaciones.cs" />
     <Compile Include="Logica\CLServicios.cs" />
     <Compile Include="Logica\CLUsuarios.cs" />
     <Compile Include="Logica\CLEmpleados.cs" />
