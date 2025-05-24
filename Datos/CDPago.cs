@@ -15,20 +15,16 @@ namespace ProyectoFinal.Datos
         public List<dynamic> MtdListaReservaciones()
         {
             List<dynamic> ListaReservaciones = new List<dynamic>();
-            string QueryListaReservaciones = "Select CodigoReserva, Total from tbl_Reservaciones";
+            string QueryListaReservaciones = "SELECT tbl_Reservaciones.CodigoReserva, tbl_Reservaciones.Total, tbl_Huespedes.Nombre FROM tbl_Reservaciones, tbl_Huespedes WHERE tbl_Reservaciones.CodigoHuesped = tbl_Huespedes.CodigoHuesped\r\n";
             SqlCommand cmd = new SqlCommand(QueryListaReservaciones, cd_conexion.MtdAbrirConexion());
             SqlDataReader reader = cmd.ExecuteReader();
-
-            string QueryListaHuespedes = "Select CodigoHuesped, Nombre from tbl_Huespedes where CodigoHuesped in (Select CodigoHuesped from tbl_Reservaciones)";
-            SqlCommand cmd2 = new SqlCommand(QueryListaHuespedes, cd_conexion.MtdAbrirConexion());
-            SqlDataReader reader2 = cmd.ExecuteReader();
 
             while (reader.Read())
             {
                 ListaReservaciones.Add(new
                 {
                     Value = reader["CodigoReserva"],
-                    Text = $"{reader["CodigoReserva"]} - {reader2["Nombre"]}"
+                    Text = $"{reader["CodigoReserva"]} - {reader["Nombre"]}",
                 });
             }
             cd_conexion.MtdCerrarConexion();
@@ -88,5 +84,24 @@ namespace ProyectoFinal.Datos
             cd_conexion.MtdCerrarConexion();
         }
 
+        public double MtdMontoReserva(double CodigoReserva)
+        {
+            double MontoTotal = 0;
+            string QueryConsultaMonto = "Select Total From tbl_Reservaciones where CodigoReserva = @CodigoReserva";
+            SqlCommand cmd = new SqlCommand(QueryConsultaMonto, cd_conexion.MtdAbrirConexion());
+            cmd.Parameters.AddWithValue("@CodigoReserva", CodigoReserva);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                MontoTotal = Convert.ToDouble(reader["Total"]);
+            }
+
+            reader.Close();
+            cd_conexion.MtdCerrarConexion();
+
+            return MontoTotal;
+        }
     }
 }

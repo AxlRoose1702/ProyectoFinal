@@ -34,5 +34,15 @@ namespace ProyectoFinal.Presentacion
         {
             InitializeComponent();
         }
+
+        private void FrmPagos_Load(object sender, EventArgs e)
+        {
+            MtdMostrarListaReservaciones();
+        }
+
+        private void cboxReserva_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblMonto.Text = cd_pago.MtdMontoReserva(Convert.ToDouble(cboxReserva.ValueMember = "Value")).ToString();  
+        }
     }
 }

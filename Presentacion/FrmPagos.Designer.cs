@@ -48,6 +48,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cboxTipo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.cboxReserva = new System.Windows.Forms.ComboBox();
             this.cboxEstado = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dateSistema = new System.Windows.Forms.DateTimePicker();
@@ -57,7 +58,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.cboxReserva = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
@@ -322,6 +322,16 @@
             this.label5.TabIndex = 62;
             this.label5.Text = "Tipo";
             // 
+            // cboxReserva
+            // 
+            this.cboxReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxReserva.FormattingEnabled = true;
+            this.cboxReserva.Location = new System.Drawing.Point(249, 38);
+            this.cboxReserva.Name = "cboxReserva";
+            this.cboxReserva.Size = new System.Drawing.Size(100, 26);
+            this.cboxReserva.TabIndex = 40;
+            this.cboxReserva.SelectedIndexChanged += new System.EventHandler(this.cboxReserva_SelectedIndexChanged);
+            // 
             // cboxEstado
             // 
             this.cboxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -411,19 +421,6 @@
             this.dgvEmpleados.Size = new System.Drawing.Size(935, 289);
             this.dgvEmpleados.TabIndex = 17;
             // 
-            // cboxReserva
-            // 
-            this.cboxReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxReserva.FormattingEnabled = true;
-            this.cboxReserva.Items.AddRange(new object[] {
-            "Efectivo",
-            "Tarjeta",
-            "Transferencia"});
-            this.cboxReserva.Location = new System.Drawing.Point(249, 38);
-            this.cboxReserva.Name = "cboxReserva";
-            this.cboxReserva.Size = new System.Drawing.Size(100, 26);
-            this.cboxReserva.TabIndex = 40;
-            // 
             // FrmPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,6 +429,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmPagos";
             this.Text = "FrmPagos";
+            this.Load += new System.EventHandler(this.FrmPagos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
