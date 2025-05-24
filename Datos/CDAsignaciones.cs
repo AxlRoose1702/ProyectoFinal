@@ -1,7 +1,4 @@
-﻿using System.Data.SqlClient;
-using System.Data;
-using System.Collections.Generic;
-using System;
+﻿using System.Collections.Generic;
 
 namespace ProyectoFinal.Datos
 {

@@ -126,6 +126,19 @@ namespace CapaPresentacion.Seguridad
             lblErrorMessage.Visible = false;
             this.Show();
         }
+
+        private void btnVER_Click(object sender, EventArgs e)
+        {
+            if(txtpass.UseSystemPasswordChar == false)
+            {
+                txtpass.UseSystemPasswordChar = true;
+            }
+            else
+            {
+                txtpass.UseSystemPasswordChar = false;
+            }
+
+        }
     }
     
 }

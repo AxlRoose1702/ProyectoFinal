@@ -40,6 +40,7 @@
             this.btnLogin = new FontAwesome.Sharp.IconButton();
             this.lblErrorMessage = new System.Windows.Forms.Label();
             this.LOGIN = new System.Windows.Forms.Label();
+            this.btnVER = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             this.SuspendLayout();
@@ -87,12 +88,12 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Silver;
-            this.linkLabel1.Location = new System.Drawing.Point(383, 279);
+            this.linkLabel1.Location = new System.Drawing.Point(366, 282);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(205, 20);
+            this.linkLabel1.Size = new System.Drawing.Size(222, 20);
             this.linkLabel1.TabIndex = 6;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "¿Ha olvidado contraseña?";
+            this.linkLabel1.Text = "¿Ha olvidado la contraseña?";
             // 
             // panel2
             // 
@@ -172,9 +173,23 @@
             this.LOGIN.ForeColor = System.Drawing.Color.DarkGray;
             this.LOGIN.Location = new System.Drawing.Point(416, 29);
             this.LOGIN.Name = "LOGIN";
-            this.LOGIN.Size = new System.Drawing.Size(128, 39);
+            this.LOGIN.Size = new System.Drawing.Size(124, 38);
             this.LOGIN.TabIndex = 10;
             this.LOGIN.Text = "LOGIN";
+            // 
+            // btnVER
+            // 
+            this.btnVER.ForeColor = System.Drawing.Color.Black;
+            this.btnVER.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btnVER.IconColor = System.Drawing.Color.Black;
+            this.btnVER.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVER.Location = new System.Drawing.Point(650, 131);
+            this.btnVER.Name = "btnVER";
+            this.btnVER.Size = new System.Drawing.Size(33, 25);
+            this.btnVER.TabIndex = 11;
+            this.btnVER.Text = "iconButton1";
+            this.btnVER.UseVisualStyleBackColor = true;
+            this.btnVER.Click += new System.EventHandler(this.btnVER_Click);
             // 
             // FrmLogin
             // 
@@ -182,6 +197,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(780, 330);
+            this.Controls.Add(this.btnVER);
             this.Controls.Add(this.LOGIN);
             this.Controls.Add(this.lblErrorMessage);
             this.Controls.Add(this.panel3);
@@ -220,5 +236,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblErrorMessage;
         private System.Windows.Forms.Label LOGIN;
+        private FontAwesome.Sharp.IconButton btnVER;
     }
 }

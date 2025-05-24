@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using CapaPresentacion.Seguridad;
 using ProyectoFinal.Datos;
 using ProyectoFinal.Logica;
 
@@ -30,7 +31,7 @@ namespace ProyectoFinal
             lblBono.Text = "0";
             lblSalario.Text = "0";
             lblMontoTotal.Text = "0";
-            lblUsuarioSistema.Text = "UsuarioSistema"; // Cambiar por el nombre del usuario logueado
+            lblUsuarioSistema.Text = UserCache.NombreUsuario; // Cambiar por el nombre del usuario logueado
             MtdConsultarPP();
             //LOS CBOX DEBEN IR CON "Seleccionar"
         }
@@ -79,24 +80,19 @@ namespace ProyectoFinal
         {
             InitializeComponent();
         }
-
         private void btnInicio_Click(object sender, EventArgs e)
         {
             FrmMenuNavegacion nav = new FrmMenuNavegacion();
             nav.Show();
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
         }
-
         private void txtCodigoEmpleado_TextChanged(object sender, EventArgs e)
         {
             //mandar a traer el salario del empleado
             MtdDatosPlanilla();
         }
-
-       
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
