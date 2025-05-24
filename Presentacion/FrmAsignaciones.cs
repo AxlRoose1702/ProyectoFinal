@@ -19,7 +19,6 @@ namespace ProyectoFinal.Presentacion
             // se crea la tabla temporal y se consulta la tabla usuarios
             // se hace llamado a través del CD y al metodo Consultar 
             DataTable Dt = cd_asignar.MtdConsultarAsignacion();
-            Console.WriteLine($"numero de filas: {Dt.Rows.Count}");
             dgvAsignaciones.DataSource = Dt;
         }
 

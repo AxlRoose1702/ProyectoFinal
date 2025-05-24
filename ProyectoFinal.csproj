@@ -53,12 +53,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\CDAsignaciones.cs" />
     <Compile Include="Datos\CDConexion.cs" />
+    <Compile Include="Datos\CDConsumos.cs" />
     <Compile Include="Datos\CDEmpleados.cs" />
     <Compile Include="Datos\CDHabitaciones.cs" />
     <Compile Include="Datos\CDHuespedes.cs" />
+    <Compile Include="Datos\CDReservaciones.cs" />
     <Compile Include="Datos\CDServicios.cs" />
     <Compile Include="Datos\CDUsuarios.cs" />
+    <Compile Include="Logica\CLAsignaciones.cs" />
+    <Compile Include="Logica\CLConsumo.cs" />
     <Compile Include="Logica\CLHabitaciones.cs" />
     <Compile Include="Datos\CDPagoPlanillas.cs" />
     <Compile Include="Datos\CDUsuarios.cs" />
