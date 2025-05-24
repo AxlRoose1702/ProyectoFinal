@@ -48,7 +48,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cboxTipo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblCodigoReserva = new System.Windows.Forms.Label();
             this.cboxEstado = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dateSistema = new System.Windows.Forms.DateTimePicker();
@@ -58,6 +57,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.cboxReserva = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
@@ -83,7 +83,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cboxTipo);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.lblCodigoReserva);
+            this.groupBox1.Controls.Add(this.cboxReserva);
             this.groupBox1.Controls.Add(this.cboxEstado);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.dateSistema);
@@ -322,16 +322,6 @@
             this.label5.TabIndex = 62;
             this.label5.Text = "Tipo";
             // 
-            // lblCodigoReserva
-            // 
-            this.lblCodigoReserva.AutoSize = true;
-            this.lblCodigoReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoReserva.Location = new System.Drawing.Point(245, 44);
-            this.lblCodigoReserva.Name = "lblCodigoReserva";
-            this.lblCodigoReserva.Size = new System.Drawing.Size(112, 20);
-            this.lblCodigoReserva.TabIndex = 49;
-            this.lblCodigoReserva.Text = "codigo reserva";
-            // 
             // cboxEstado
             // 
             this.cboxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -421,6 +411,19 @@
             this.dgvEmpleados.Size = new System.Drawing.Size(935, 289);
             this.dgvEmpleados.TabIndex = 17;
             // 
+            // cboxReserva
+            // 
+            this.cboxReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxReserva.FormattingEnabled = true;
+            this.cboxReserva.Items.AddRange(new object[] {
+            "Efectivo",
+            "Tarjeta",
+            "Transferencia"});
+            this.cboxReserva.Location = new System.Drawing.Point(249, 38);
+            this.cboxReserva.Name = "cboxReserva";
+            this.cboxReserva.Size = new System.Drawing.Size(100, 26);
+            this.cboxReserva.TabIndex = 40;
+            // 
             // FrmPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,7 +450,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboxTipo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblCodigoReserva;
         private System.Windows.Forms.ComboBox cboxEstado;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dateSistema;
@@ -468,5 +470,6 @@
         private FontAwesome.Sharp.IconButton btnEditar;
         private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnAgregar;
+        private System.Windows.Forms.ComboBox cboxReserva;
     }
 }
