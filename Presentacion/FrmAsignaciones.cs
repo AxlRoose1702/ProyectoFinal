@@ -1,5 +1,4 @@
 ﻿using ProyectoFinal.Datos;
-using ProyectoFinal.Logica;
 using System;
 using System.Data;
 using System.Data.SqlClient;
