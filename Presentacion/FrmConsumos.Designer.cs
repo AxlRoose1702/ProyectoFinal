@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnInicio = new FontAwesome.Sharp.IconButton();
+            this.cboxCodigoReserva = new System.Windows.Forms.ComboBox();
+            this.cboxCodigoServicio = new System.Windows.Forms.ComboBox();
             this.btnCancel = new FontAwesome.Sharp.IconButton();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
@@ -39,8 +40,6 @@
             this.dateConsumo = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.lblCodigoConsumo = new System.Windows.Forms.Label();
-            this.lblCodigoReserva = new System.Windows.Forms.Label();
-            this.lblCodigoServicio = new System.Windows.Forms.Label();
             this.cboxEstado = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dateSistema = new System.Windows.Forms.DateTimePicker();
@@ -51,14 +50,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.dgvConsumos = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsumos)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnInicio);
+            this.groupBox1.Controls.Add(this.cboxCodigoReserva);
+            this.groupBox1.Controls.Add(this.cboxCodigoServicio);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.btnEditar);
             this.groupBox1.Controls.Add(this.btnEliminar);
@@ -68,8 +68,6 @@
             this.groupBox1.Controls.Add(this.dateConsumo);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.lblCodigoConsumo);
-            this.groupBox1.Controls.Add(this.lblCodigoReserva);
-            this.groupBox1.Controls.Add(this.lblCodigoServicio);
             this.groupBox1.Controls.Add(this.cboxEstado);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.dateSistema);
@@ -80,28 +78,31 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.dgvEmpleados);
+            this.groupBox1.Controls.Add(this.dgvConsumos);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(994, 572);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
-            // btnInicio
+            // cboxCodigoReserva
             // 
-            this.btnInicio.AutoSize = true;
-            this.btnInicio.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnInicio.IconChar = FontAwesome.Sharp.IconChar.HomeUser;
-            this.btnInicio.IconColor = System.Drawing.Color.Black;
-            this.btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInicio.Location = new System.Drawing.Point(860, 144);
-            this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(103, 54);
-            this.btnInicio.TabIndex = 76;
-            this.btnInicio.Text = "Inicio";
-            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInicio.UseVisualStyleBackColor = true;
+            this.cboxCodigoReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxCodigoReserva.FormattingEnabled = true;
+            this.cboxCodigoReserva.Location = new System.Drawing.Point(266, 53);
+            this.cboxCodigoReserva.Name = "cboxCodigoReserva";
+            this.cboxCodigoReserva.Size = new System.Drawing.Size(100, 26);
+            this.cboxCodigoReserva.TabIndex = 78;
+            // 
+            // cboxCodigoServicio
+            // 
+            this.cboxCodigoServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxCodigoServicio.FormattingEnabled = true;
+            this.cboxCodigoServicio.Location = new System.Drawing.Point(266, 95);
+            this.cboxCodigoServicio.Name = "cboxCodigoServicio";
+            this.cboxCodigoServicio.Size = new System.Drawing.Size(100, 26);
+            this.cboxCodigoServicio.TabIndex = 77;
+            this.cboxCodigoServicio.SelectedIndexChanged += new System.EventHandler(this.cboxCodigoServicio_SelectedIndexChanged);
             // 
             // btnCancel
             // 
@@ -118,6 +119,7 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnEditar
             // 
@@ -134,6 +136,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
@@ -166,6 +169,7 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblMonto
             // 
@@ -214,26 +218,6 @@
             this.lblCodigoConsumo.Size = new System.Drawing.Size(125, 20);
             this.lblCodigoConsumo.TabIndex = 49;
             this.lblCodigoConsumo.Text = "codigo consumo";
-            // 
-            // lblCodigoReserva
-            // 
-            this.lblCodigoReserva.AutoSize = true;
-            this.lblCodigoReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoReserva.Location = new System.Drawing.Point(260, 59);
-            this.lblCodigoReserva.Name = "lblCodigoReserva";
-            this.lblCodigoReserva.Size = new System.Drawing.Size(112, 20);
-            this.lblCodigoReserva.TabIndex = 42;
-            this.lblCodigoReserva.Text = "codigo reserva";
-            // 
-            // lblCodigoServicio
-            // 
-            this.lblCodigoServicio.AutoSize = true;
-            this.lblCodigoServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoServicio.Location = new System.Drawing.Point(261, 93);
-            this.lblCodigoServicio.Name = "lblCodigoServicio";
-            this.lblCodigoServicio.Size = new System.Drawing.Size(112, 20);
-            this.lblCodigoServicio.TabIndex = 41;
-            this.lblCodigoServicio.Text = "codigo servicio";
             // 
             // cboxEstado
             // 
@@ -336,15 +320,16 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Codigo Consumo";
             // 
-            // dgvEmpleados
+            // dgvConsumos
             // 
-            this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Location = new System.Drawing.Point(108, 266);
-            this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmpleados.Size = new System.Drawing.Size(823, 289);
-            this.dgvEmpleados.TabIndex = 17;
+            this.dgvConsumos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvConsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConsumos.Location = new System.Drawing.Point(108, 266);
+            this.dgvConsumos.Name = "dgvConsumos";
+            this.dgvConsumos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConsumos.Size = new System.Drawing.Size(823, 289);
+            this.dgvConsumos.TabIndex = 17;
+            this.dgvConsumos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsumos_CellClick);
             // 
             // FrmConsumos
             // 
@@ -354,9 +339,10 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmConsumos";
             this.Text = "FrmConsumos";
+            this.Load += new System.EventHandler(this.FrmConsumos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsumos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -369,8 +355,6 @@
         private System.Windows.Forms.DateTimePicker dateConsumo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblCodigoConsumo;
-        private System.Windows.Forms.Label lblCodigoReserva;
-        private System.Windows.Forms.Label lblCodigoServicio;
         private System.Windows.Forms.ComboBox cboxEstado;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dateSistema;
@@ -381,11 +365,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvEmpleados;
-        private FontAwesome.Sharp.IconButton btnInicio;
+        private System.Windows.Forms.DataGridView dgvConsumos;
         private FontAwesome.Sharp.IconButton btnCancel;
         private FontAwesome.Sharp.IconButton btnEditar;
         private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnAgregar;
+        private System.Windows.Forms.ComboBox cboxCodigoReserva;
+        private System.Windows.Forms.ComboBox cboxCodigoServicio;
     }
 }
