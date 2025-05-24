@@ -1,4 +1,5 @@
 ﻿using ProyectoFinal.Datos;
+using ProyectoFinal.Logica;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ namespace ProyectoFinal.Presentacion
     public partial class FrmReservaciones : Form
     {
         CDReservaciones cd_reservaciones = new CDReservaciones();
+        CLReservaciones cl_reservaciones = new CLReservaciones();
 
         private void MtdConsultarReservaciones()
         {
@@ -199,6 +201,13 @@ namespace ProyectoFinal.Presentacion
                 txtUsuarioSistema.Text = dgvReservaciones.SelectedCells[6].Value.ToString();
                 dateSistema.Text = dgvReservaciones.SelectedCells[7].Value.ToString();
             }
+        }
+
+        private void cboxCodigoHabitacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedHabitacion = (dynamic)cboxCodigoHabitacion.SelectedItem;
+            int codigoHabitacion = (int)selectedHabitacion.Value;
+            lblTotal.Text = cl_reservaciones.MtdTotalReservaciones(codigoHabitacion).ToString();
         }
     }
 }
