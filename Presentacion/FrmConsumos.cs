@@ -1,4 +1,5 @@
-﻿using ProyectoFinal.Datos;
+﻿using CapaPresentacion.Seguridad;
+using ProyectoFinal.Datos;
 using ProyectoFinal.Logica;
 using System;
 using System.Data;
@@ -55,8 +56,9 @@ namespace ProyectoFinal.Presentacion
             cboxCodigoReserva.Text = "Seleccionar";
             cboxCodigoServicio.Text = "Seleccionar";
             lblMonto.Text = "";
-            txtUsuarioSistema.Clear();
+            txtUsuarioSistema.Text = UserCache.NombreUsuario;
             cboxEstado.Text = "Seleccionar";
+
         }
 
         private void FrmConsumos_Load(object sender, EventArgs e)

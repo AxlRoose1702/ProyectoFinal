@@ -1,4 +1,5 @@
-﻿using ProyectoFinal.Datos;
+﻿using CapaPresentacion.Seguridad;
+using ProyectoFinal.Datos;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -99,7 +100,8 @@ namespace ProyectoFinal.Presentacion
             cboxCodigoHabitacion.Text = "Seleccionar";
             cboxEstado.Text = "Seleccionar";
             cboxTipoAsignacion.Text = "Seleccionar";
-            txtUsuarioSistema.Clear();
+            txtUsuarioSistema.Text = UserCache.NombreUsuario;
+
             //LOS CBOX DEBEN IR CON "Seleccionar"
         }
 
@@ -208,6 +210,16 @@ namespace ProyectoFinal.Presentacion
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+            MtdMostrarListaEmpleados();
+        }
+
+        private void cboxCodigoHabitacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

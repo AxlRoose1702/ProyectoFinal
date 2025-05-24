@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using CapaPresentacion.Seguridad;
 using ProyectoFinal.Datos;
 using ProyectoFinal.Logica;
 
@@ -40,10 +41,10 @@ namespace ProyectoFinal
             txtCodigoUsuario.Clear();
             txtNombreUsuario.Clear();
             txtPassword.Clear();
-            txtUsuarioSistema.Clear();
             cboxEstado.Text = "Seleccionar";
             cboxRol.Text = "Seleccionar";
             cboxCodigoEmpleado.Text = "Seleccionar";
+            txtUsuarioSistema.Text = UserCache.NombreUsuario;
             //LOS CBOX DEBEN IR CON "Seleccionar"
         }
 
@@ -244,6 +245,11 @@ namespace ProyectoFinal
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void cboxCodigoEmpleado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MtdMostrarListaEmpleados();
         }
     }
 }

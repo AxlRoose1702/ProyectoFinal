@@ -1,4 +1,6 @@
-﻿using ProyectoFinal.Datos;
+using CapaPresentacion.Seguridad;
+using ProyectoFinal.Datos;
+using ProyectoFinal.Datos;
 using ProyectoFinal.Logica;
 using System;
 using System.Data;
@@ -94,6 +96,7 @@ namespace ProyectoFinal.Presentacion
             MtdConsultarReservaciones();
             MtdMostrarListaHuespedes();
             MtdMostrarListaHabitacion();
+            MtdLimpiarDatos();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -140,7 +143,7 @@ namespace ProyectoFinal.Presentacion
             cboxCodigoHabitacion.Text = "Seleccionar";
             cboxCodigoHuesped.Text = "Seleccionar";
             lblTotal.Text = "";
-            txtUsuarioSistema.Clear();
+            txtUsuarioSistema.Text = UserCache.NombreUsuario;
 
         }
 
@@ -203,6 +206,9 @@ namespace ProyectoFinal.Presentacion
             }
         }
 
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
         private void cboxCodigoHabitacion_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedHabitacion = (dynamic)cboxCodigoHabitacion.SelectedItem;
