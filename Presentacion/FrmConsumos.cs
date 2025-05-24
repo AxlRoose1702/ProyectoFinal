@@ -71,17 +71,9 @@ namespace ProyectoFinal.Presentacion
         {
             try
             {
-                int servicio = (int)((dynamic)cboxCodigoServicio.SelectedItem).Value;
-                int salario = (int)cl_consumos.MtdMontoConsumo(servicio);
-
-                if (string.IsNullOrEmpty(cboxCodigoServicio.Text))
-                {
-                    MessageBox.Show("Seleccionar servicio", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    lblMonto.Text = salario.ToString("c");
-                }
+                var selectedServicio = (dynamic)cboxCodigoServicio.SelectedItem;
+                int codigoServicio = (int)selectedServicio.Value;
+                lblMonto.Text = cl_consumos.MtdMontoConsumo(codigoServicio).ToString();
             }
             catch (Exception ex)
             {
