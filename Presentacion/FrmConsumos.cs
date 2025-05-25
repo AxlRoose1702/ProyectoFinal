@@ -129,9 +129,9 @@ namespace ProyectoFinal.Presentacion
                 cboxCodigoServicio.Text = dgvConsumos.SelectedCells[2].Value.ToString();
                 lblMonto.Text = dgvConsumos.SelectedCells[3].Value.ToString();
                 dateConsumo.Text = dgvConsumos.SelectedCells[4].Value.ToString();
-                cboxEstado.Text = dgvConsumos.SelectedCells[6].Value.ToString();
-                txtUsuarioSistema.Text = dgvConsumos.SelectedCells[7].Value.ToString();
-                dateSistema.Text = dgvConsumos.SelectedCells[8].Value.ToString();
+                cboxEstado.Text = dgvConsumos.SelectedCells[5].Value.ToString();
+                txtUsuarioSistema.Text = dgvConsumos.SelectedCells[6].Value.ToString();
+                dateSistema.Text = dgvConsumos.SelectedCells[7].Value.ToString();
             }
         }
 
