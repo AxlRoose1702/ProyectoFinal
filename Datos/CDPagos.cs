@@ -34,15 +34,15 @@ namespace ProyectoFinal.Datos
             cmd.Parameters.AddWithValue("@TotalPago", TotalPago);
             cmd.Parameters.AddWithValue("@FechaPago", FechaPago);
             cmd.Parameters.AddWithValue("@MetodoPago", MetodoPago);
-            cmd.Parameters.AddWithValue("@MetodoPago", UsuarioSistema);
-            cmd.Parameters.AddWithValue("@MetodoPago", FechaSistema);
+            cmd.Parameters.AddWithValue("@UsuarioSistema", UsuarioSistema);
+            cmd.Parameters.AddWithValue("@FechaSistema", FechaSistema);
             cmd.ExecuteNonQuery();
             cd_conexion.MtdCerrarConexion();
         }
 
         public void MtdActualizarPago(int CodigoPago, int CodigoReserva, double Monto, double Propina, double Impuesto, double Descuento, double TotalPago, DateTime FechaPago, string MetodoPago, string UsuarioSistema, DateTime FechaSistema)
         {
-            string QueryActualizarPago = "Update tbl_Pagos set CodigoReserva=@CodigoReserva, Monto=@Monto, Propina=@Propina, Impuesto=@Impuesto, Descuento=@Descuento, TotalPago=@TotalPago, FechaPago=@FechaPago, MetodoPago=@MetodoPago, UsuarioSistema=@UsuarioSistema, FechaSistema=@FechaSistema   where CodigoPagoPlanilla=@CodigoPagoPlanilla";
+            string QueryActualizarPago = "Update tbl_Pagos set CodigoReserva=@CodigoReserva, Monto=@Monto, Propina=@Propina, Impuesto=@Impuesto, Descuento=@Descuento, TotalPago=@TotalPago, FechaPago=@FechaPago, MetodoPago=@MetodoPago, UsuarioSistema=@UsuarioSistema, FechaSistema=@FechaSistema   where CodigoPago=@CodigoPago";
             SqlCommand cmd = new SqlCommand(QueryActualizarPago, cd_conexion.MtdAbrirConexion());
             cmd.Parameters.AddWithValue("@CodigoPago", CodigoPago);
             cmd.Parameters.AddWithValue("@CodigoReserva", CodigoReserva);
@@ -53,17 +53,17 @@ namespace ProyectoFinal.Datos
             cmd.Parameters.AddWithValue("@TotalPago", TotalPago);
             cmd.Parameters.AddWithValue("@FechaPago", FechaPago);
             cmd.Parameters.AddWithValue("@MetodoPago", MetodoPago);
-            cmd.Parameters.AddWithValue("@MetodoPago", UsuarioSistema);
-            cmd.Parameters.AddWithValue("@MetodoPago", FechaSistema);
+            cmd.Parameters.AddWithValue("@UsuarioSistema", UsuarioSistema);
+            cmd.Parameters.AddWithValue("@FechaSistema", FechaSistema);
             cmd.ExecuteNonQuery();
             cd_conexion.MtdCerrarConexion();
         }
 
-        public void MtdEliminarPago(int CodigoPagoPlanilla)
+        public void MtdEliminarPago(int CodigoPago)
         {
             string QueryEliminarPago = "Delete tbl_Pagos where CodigoPago=@CodigoPago";
             SqlCommand cmd = new SqlCommand(QueryEliminarPago, cd_conexion.MtdAbrirConexion());
-            cmd.Parameters.AddWithValue("@CodigoPago", CodigoPagoPlanilla);
+            cmd.Parameters.AddWithValue("@CodigoPago", CodigoPago);
             cmd.ExecuteNonQuery();
             cd_conexion.MtdCerrarConexion();
         }
@@ -106,7 +106,24 @@ namespace ProyectoFinal.Datos
             cd_conexion.MtdCerrarConexion();
             return Reserva;
         }
+        public List<dynamic> MtdListaReserva()
+        {
+            List<dynamic> ListaReserva = new List<dynamic>();
+            string QueryListaReserva = "Select CodigoReserva from tbl_Reservaciones";
+            SqlCommand cmd = new SqlCommand(QueryListaReserva, cd_conexion.MtdAbrirConexion());
+            SqlDataReader reader = cmd.ExecuteReader();
 
+            while (reader.Read())
+            {
+                ListaReserva.Add(new
+                {
+                    Value = reader["CodigoReserva"],
+                    Text = $"{reader["CodigoReserva"]}"
+                });
+            }
+            cd_conexion.MtdCerrarConexion();
+            return ListaReserva;
+        }
 
     }
 }

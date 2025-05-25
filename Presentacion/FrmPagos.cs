@@ -28,6 +28,19 @@ namespace ProyectoFinal.Presentacion
         //Este metodo llama a todos los empleados que existen
         //en la tabla empleados y los agrega al combobox
 
+        private void MtdMostrarListaReserva()
+        {
+            var ListaReserva = cd_pagos.MtdListaReserva();
+
+            foreach (var Reserva in ListaReserva)
+            {
+                cboxCodigoReserva.Items.Add(Reserva);
+            }
+
+            cboxCodigoReserva.DisplayMember = "Text";
+            cboxCodigoReserva.ValueMember = "Value";
+
+        }
         public void mtdLimpiarCampos()
         {//metodo para limpiar los campos
             txtCodigoPago.Clear();
@@ -44,12 +57,12 @@ namespace ProyectoFinal.Presentacion
         }
         public void MtdDatosReservacion()
         {
-            if (!string.IsNullOrEmpty(txtCodigoReserva.Text))
+            if (!string.IsNullOrEmpty(cboxCodigoReserva.Text))
             {
-                if (cd_pagos.MtdVerificarReserva(int.Parse(txtCodigoReserva.Text)) == 1702)
+                if (cd_pagos.MtdVerificarReserva(int.Parse(cboxCodigoReserva.Text)) == 1702)
                 {
                     //se llama al metodo de salario en la clase CD
-                    double MontoPago = cd_pagos.MtdMonto(int.Parse(txtCodigoReserva.Text));
+                    double MontoPago = cd_pagos.MtdMonto((int)((dynamic)cboxCodigoReserva.SelectedItem).Value);
                     double Descuento = cl_pagos.MtdDescuentoPago(MontoPago);
                     double Impuesto = cl_pagos.MtdImpuestoPago(MontoPago);
                     double Propina = cl_pagos.MtdPropinaPago(MontoPago);
@@ -116,7 +129,7 @@ namespace ProyectoFinal.Presentacion
             //BOTON AGREGAR
 
             //siempre verificar que el load ya tenga la información necesaria y este creado el mtdConsultar
-            if (string.IsNullOrEmpty(txtCodigoReserva.Text) || string.IsNullOrEmpty(txtUsuarioSistema.Text))
+            if (string.IsNullOrEmpty(cboxCodigoReserva.Text) || string.IsNullOrEmpty(txtUsuarioSistema.Text))
             {
                 MessageBox.Show("Favor completar CodigoReservación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -126,15 +139,15 @@ namespace ProyectoFinal.Presentacion
             }
             else
             {
-                if (cd_pagos.MtdVerificarReserva(int.Parse(txtCodigoReserva.Text)) != 1702)
+                if (cd_pagos.MtdVerificarReserva(int.Parse(cboxCodigoReserva.Text)) != 1702)
                 {
                     MessageBox.Show("La reservación no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 //Declaracion de todas las variables con todos los objetos del form
-                int CodigoPago = int.Parse(txtCodigoPago.Text);
-                int CodigoReserva = int.Parse(txtCodigoReserva.Text);
+                //int CodigoPago = int.Parse(txtCodigoPago.Text);
+                int CodigoReserva = (int)((dynamic)cboxCodigoReserva.SelectedItem).Value;
                 double Monto = double.Parse(lblMonto.Text);
                 double Propina = double.Parse(lblPropina.Text);
                 double Impuesto = double.Parse(lblImpuesto.Text);
@@ -166,7 +179,7 @@ namespace ProyectoFinal.Presentacion
             // boton editar
 
             //las condiciones if-else se repiten en el boton agregar y editar, pero no se pueden poner en un metodo
-            if (string.IsNullOrEmpty(txtCodigoReserva.Text) || string.IsNullOrEmpty(txtUsuarioSistema.Text))
+            if (string.IsNullOrEmpty(cboxCodigoReserva.Text) || string.IsNullOrEmpty(txtUsuarioSistema.Text))
             {
                 MessageBox.Show("Favor completar CodigoReservación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -176,7 +189,7 @@ namespace ProyectoFinal.Presentacion
             }
             else
             {
-                if (cd_pagos.MtdVerificarReserva(int.Parse(txtCodigoReserva.Text)) != 1702)
+                if (cd_pagos.MtdVerificarReserva(int.Parse(cboxCodigoReserva.Text)) != 1702)
                 {
                     MessageBox.Show("La reservación no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -184,7 +197,7 @@ namespace ProyectoFinal.Presentacion
 
                 //Declaracion de todas las variables con todos los objetos del form
                 int CodigoPago = int.Parse(txtCodigoPago.Text);
-                int CodigoReserva = int.Parse(txtCodigoReserva.Text);
+                int CodigoReserva = (int)((dynamic)cboxCodigoReserva.SelectedItem).Value;
                 double Monto = double.Parse(lblMonto.Text);
                 double Propina = double.Parse(lblPropina.Text);
                 double Impuesto = double.Parse(lblImpuesto.Text);
@@ -229,6 +242,8 @@ namespace ProyectoFinal.Presentacion
             //desde la clase CD
             MtdConsultarPago();
             mtdLimpiarCampos();
+            MtdMostrarListaReserva();
+
         }
 
         private void dgvPagos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -242,7 +257,7 @@ namespace ProyectoFinal.Presentacion
             else
             {
                 txtCodigoPago.Text = dgvPagos.SelectedCells[0].Value.ToString();
-                txtCodigoReserva.Text = dgvPagos.SelectedCells[1].Value.ToString();
+                cboxCodigoReserva.Text = dgvPagos.SelectedCells[1].Value.ToString();
                 lblMonto.Text = dgvPagos.SelectedCells[2].Value.ToString();
                 lblPropina.Text = dgvPagos.SelectedCells[3].Value.ToString();
                 lblImpuesto.Text = dgvPagos.SelectedCells[4].Value.ToString();
@@ -252,6 +267,29 @@ namespace ProyectoFinal.Presentacion
                 cboxMetodo.Text = dgvPagos.SelectedCells[8].Value.ToString();
                 txtUsuarioSistema.Text = dgvPagos.SelectedCells[9].Value.ToString();
                 dateSistema.Value = DateTime.Parse(dgvPagos.SelectedCells[10].Value.ToString());
+            }
+        }
+
+        private void cboxCodigoReserva_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var selectedReserva = (dynamic)cboxCodigoReserva.SelectedItem;
+                int codigoReserva = (int)selectedReserva.Value;
+                lblMonto.Text = cl_pagos.MtdMontoConsumo(codigoReserva).ToString();
+
+                lblPropina.Text = cl_pagos.MtdPropinaPago(codigoReserva).ToString();
+                lblImpuesto.Text = cl_pagos.MtdImpuestoPago(codigoReserva).ToString();
+                lblDescuento.Text = cl_pagos.MtdDescuentoPago(double.Parse(lblMonto.Text)).ToString();
+                double monto = double.Parse(lblMonto.Text);
+                double propina = double.Parse(lblPropina.Text);
+                double impuesto = double.Parse(lblImpuesto.Text);
+                double descuento = double.Parse(lblDescuento.Text);
+                lblTotalPago.Text = cl_pagos.MtdTotalPago(monto, propina, impuesto, descuento).ToString(); ;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
