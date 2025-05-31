@@ -208,8 +208,11 @@ namespace ProyectoFinal.Presentacion
 
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        { }
+
         {
         }
+
         private void cboxCodigoHabitacion_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedHabitacion = (dynamic)cboxCodigoHabitacion.SelectedItem;
