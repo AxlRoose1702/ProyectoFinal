@@ -25,6 +25,8 @@ namespace ProyectoFinal
         //en la tabla empleados y los agrega al combobox
         private void MtdMostrarListaEmpleados()
         {
+            cboxCodigoEmpleado.Items.Clear();
+            
             var ListaEmpleados = cd_usuarios.MtdListaEmpleados();
 
             foreach (var Empleados in ListaEmpleados)
@@ -43,6 +45,7 @@ namespace ProyectoFinal
             txtPassword.Clear();
             cboxEstado.Text = "Seleccionar";
             cboxRol.Text = "Seleccionar";
+            MtdMostrarListaEmpleados();
             cboxCodigoEmpleado.Text = "Seleccionar";
             txtUsuarioSistema.Text = UserCache.NombreUsuario;
             //LOS CBOX DEBEN IR CON "Seleccionar"
@@ -249,7 +252,7 @@ namespace ProyectoFinal
 
         private void cboxCodigoEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MtdMostrarListaEmpleados();
+           // MtdMostrarListaEmpleados();
         }
     }
 }
