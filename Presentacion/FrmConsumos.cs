@@ -95,7 +95,7 @@ namespace ProyectoFinal.Presentacion
                 int CodigoConsumo = int.Parse(lblCodigoConsumo.Text);
                 int CodigoReserva = (int)((dynamic)cboxCodigoReserva.SelectedItem).Value;
                 int CodigoServicio = (int)((dynamic)cboxCodigoServicio.SelectedItem).Value;
-                int monto = int.Parse(lblMonto.Text);
+                double monto = double.Parse(lblMonto.Text);
                 DateTime FechaConsumo = dateConsumo.Value.Date;
                 string Estado = cboxEstado.Text;
                 string UsuarioSistema = txtUsuarioSistema.Text;
@@ -151,7 +151,7 @@ namespace ProyectoFinal.Presentacion
             {
                 int CodigoReserva = (int)((dynamic)cboxCodigoReserva.SelectedItem).Value;
                 int CodigoServicio = (int)((dynamic)cboxCodigoServicio.SelectedItem).Value;
-                int monto = int.Parse(lblMonto.Text);
+                double monto = double.Parse(lblMonto.Text);
                 DateTime FechaConsumo = dateConsumo.Value.Date;
                 string Estado = cboxEstado.Text;
                 string UsuarioSistema = txtUsuarioSistema.Text;
@@ -168,6 +168,32 @@ namespace ProyectoFinal.Presentacion
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(lblCodigoConsumo.Text))
+            {
+                MessageBox.Show("Favor seleccionar fila a eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int CodigoCosumo = int.Parse(lblCodigoConsumo.Text);
+
+                try
+                {
+                    cd_consumos.MtdEliminarConsumos(CodigoCosumo);
+                    MessageBox.Show("Registro eliminado correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MtdConsultarConsumos();
+                    mtdLimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
         }
     }
 }

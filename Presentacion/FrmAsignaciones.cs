@@ -25,6 +25,7 @@ namespace ProyectoFinal.Presentacion
         private void MtdMostrarListaEmpleados()
         {
             var ListaEmpleados = cd_asignar.MtdListaEmpleados();
+            cboxCodigoEmpleado.Items.Clear();
 
             foreach (var Empleados in ListaEmpleados)
             {
@@ -39,6 +40,7 @@ namespace ProyectoFinal.Presentacion
         private void MtdMostrarListaHabitacion()
         {
             var ListaHabitacion = cd_asignar.MtdListaHabitaciones();
+            cboxCodigoHabitacion.Items.Clear();
 
             foreach (var Habitacion in ListaHabitacion)
             {

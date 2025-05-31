@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,29 @@ namespace ProyectoFinal.Logica
 {
     internal class CLPagos
     {
+        CDConexion cd_conexion = new CDConexion();
+        public double MtdMontoConsumo(int CodigoReserva)
+        {
+            double MontoPago = 0;
+
+            string QueryConsultarMontoPago = "Select Total from tbl_Reservaciones where CodigoReserva=@CodigoReserva";
+            SqlCommand CommandMontoServicio = new SqlCommand(QueryConsultarMontoPago, cd_conexion.MtdAbrirConexion());
+            CommandMontoServicio.Parameters.AddWithValue("@CodigoReserva", CodigoReserva);
+            SqlDataReader reader = CommandMontoServicio.ExecuteReader();
+
+            if (reader.Read())
+            {
+                MontoPago = double.Parse(reader["Total"].ToString());
+            }
+            else
+            {
+                MontoPago = 0;
+            }
+
+            cd_conexion.MtdCerrarConexion();
+
+            return MontoPago;
+        }
         public double MtdPropinaPago (double Monto)
         {
             return (Monto * 0.10);

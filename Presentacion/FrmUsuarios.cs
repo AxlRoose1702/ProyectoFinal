@@ -28,6 +28,7 @@ namespace ProyectoFinal
             cboxCodigoEmpleado.Items.Clear();
             
             var ListaEmpleados = cd_usuarios.MtdListaEmpleados();
+            cboxCodigoEmpleado.Items.Clear();
 
             foreach (var Empleados in ListaEmpleados)
             {

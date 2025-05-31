@@ -70,7 +70,7 @@ namespace ProyectoFinal.Presentacion
                 int CodigoHabitacion = (int)((dynamic)cboxCodigoHabitacion.SelectedItem).Value;
                 DateTime FechaEntrada = dateEntrada.Value;
                 DateTime FechaSalida = dateSalida.Value;
-                int Total = int.Parse(lblTotal.Text);
+                double Total = double.Parse(lblTotal.Text);
                 string UsuarioSistema = txtUsuarioSistema.Text;
                 //string Estado = cboxEstado.Text; No se encuentra este valor en la bd
                 DateTime FechaSistema = dateSistema.Value;
@@ -117,7 +117,7 @@ namespace ProyectoFinal.Presentacion
                 int CodigoHabitacion = (int)((dynamic)cboxCodigoHabitacion.SelectedItem).Value;
                 DateTime FechaEntrada = dateEntrada.Value;
                 DateTime FechaSalida = dateSalida.Value;
-                int Total = int.Parse(lblTotal.Text);
+                double Total = double.Parse(lblTotal.Text);
                 string UsuarioSistema = txtUsuarioSistema.Text;
                 //string Estado = cboxEstado.Text;
                 DateTime FechaSistema = dateSistema.Value;
@@ -209,6 +209,10 @@ namespace ProyectoFinal.Presentacion
 
         private void groupBox1_Enter(object sender, EventArgs e)
         { }
+
+        {
+        }
+
         private void cboxCodigoHabitacion_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedHabitacion = (dynamic)cboxCodigoHabitacion.SelectedItem;

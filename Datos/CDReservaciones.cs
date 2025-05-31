@@ -18,7 +18,7 @@ namespace ProyectoFinal.Datos
             cd_conexion.MtdCerrarConexion();
             return Dt;
         }
-        public void MtdAgregarReservaciones(int CodigoHuesped, int CodigoHabitacion, DateTime FechaEntrada, DateTime FechaSalida, int Total, string UsuarioSistema, DateTime FechaSistema)
+        public void MtdAgregarReservaciones(int CodigoHuesped, int CodigoHabitacion, DateTime FechaEntrada, DateTime FechaSalida, double Total, string UsuarioSistema, DateTime FechaSistema)
         {
             string QueryAgregarAsignacion = "Insert into tbl_Reservaciones(CodigoHuesped, CodigoHabitacion, FechaEntrada, FechaSalida, Total, UsuarioSistema, FechaSistema) values (@CodigoHuesped, @CodigoHabitacion, @FechaEntrada, @FechaSalida, @Total, @UsuarioSistema, @FechaSistema)";
             SqlCommand cmd = new SqlCommand(QueryAgregarAsignacion, cd_conexion.MtdAbrirConexion());
@@ -32,9 +32,9 @@ namespace ProyectoFinal.Datos
             cmd.ExecuteNonQuery();
             cd_conexion.MtdCerrarConexion();
         }
-        public void MtdActualizarReserva(int CodigoReserva, int CodigoHuesped, int CodigoHabitacion, DateTime FechaEntrada, DateTime FechaSalida, int Total, string UsuarioSistema, DateTime FechaSistema)
+        public void MtdActualizarReserva(int CodigoReserva, int CodigoHuesped, int CodigoHabitacion, DateTime FechaEntrada, DateTime FechaSalida, double Total, string UsuarioSistema, DateTime FechaSistema)
         {
-            string QueryActualizarAsignacion = "Update tbl_Reservas set CodigoHuesped=@CodigoHuesped, CodigoHabitacion=@CodigoHabitacion, FechaEntrada=@FechaEntrada, FechaSalida=@FechaSalida, Total=@Total, UsuarioSistema=@UsuarioSistema, FechaSistema=@FechaSistema where CodigoReserva=@CodigoReserva";
+            string QueryActualizarAsignacion = "Update tbl_Reservaciones set CodigoHuesped=@CodigoHuesped, CodigoHabitacion=@CodigoHabitacion, FechaEntrada=@FechaEntrada, FechaSalida=@FechaSalida, Total=@Total, UsuarioSistema=@UsuarioSistema, FechaSistema=@FechaSistema where CodigoReserva=@CodigoReserva";
             SqlCommand cmd = new SqlCommand(QueryActualizarAsignacion, cd_conexion.MtdAbrirConexion());
             cmd.Parameters.AddWithValue("@CodigoReserva", CodigoReserva);
             cmd.Parameters.AddWithValue("@CodigoHuesped", CodigoHuesped);
@@ -50,7 +50,7 @@ namespace ProyectoFinal.Datos
 
         public void MtdEliminarReservacion(int CodigoReserva)
         {
-            string QueryEliminarReservacion = "Delete tbl_Reservas where CodigoReserva=@CodigoReserva";
+            string QueryEliminarReservacion = "Delete tbl_Reservaciones where CodigoReserva=@CodigoReserva";
             SqlCommand cmd = new SqlCommand(QueryEliminarReservacion, cd_conexion.MtdAbrirConexion());
             cmd.Parameters.AddWithValue("@CodigoReserva", CodigoReserva);
             cmd.ExecuteNonQuery();
