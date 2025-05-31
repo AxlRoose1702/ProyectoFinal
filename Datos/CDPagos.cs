@@ -72,13 +72,13 @@ namespace ProyectoFinal.Datos
         public double MtdMonto(int CodigoReserva)
         {
             double Monto = 0;
-            string QueryConsultarMonto = "Select Monto from tbl_Reservaciones where CodigoReserva=@CodigoReserva";
+            string QueryConsultarMonto = "Select Total from tbl_Reservaciones where CodigoReserva=@CodigoReserva";
             SqlCommand CommandMonto = new SqlCommand(QueryConsultarMonto, cd_conexion.MtdAbrirConexion());
             CommandMonto.Parameters.AddWithValue("@CodigoReserva", CodigoReserva);
             SqlDataReader reader = CommandMonto.ExecuteReader();
             if (reader.Read())
             {
-                Monto = double.Parse(reader["Monto"].ToString());
+                Monto = double.Parse(reader["Total"].ToString());
             }
             else
             {
